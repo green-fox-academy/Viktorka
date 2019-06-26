@@ -1,0 +1,36 @@
+*{
+    margin:0px;
+}
+body {
+    background-color: wheat;
+}
+header {
+    background-color: gray;
+    padding: 0 10%;
+    border-style:solid;
+    border-width: 1px;
+    
+}
+
+.rodeo, .News {
+    background-color:black;
+    border-style: solid;
+    border-width: 1px;
+    size: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    color: white;
+}
+div {
+    margin-left: 10%;
+    margin-top: 1.5%;
+}
+.input {
+    font-weight: bold;
+}
+.titlebar, .postbar {
+    border-style: solid;
+    border-width: 1px;
+    background-color: black;
+    color: white
+}

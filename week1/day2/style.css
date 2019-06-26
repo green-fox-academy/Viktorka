@@ -1,0 +1,18 @@
+body {
+    text-align: center;        
+    background-image: url(https://www.abc.net.au/cm/lb/10152546/data/fat-cat-fluff-dreaming-of-fish-data.jpg);
+        }
+p {
+    font-size: 20px;
+    color: aliceblue;
+}
+h1 {          
+            background: darksalmon;
+        }
+div {
+    background-color: rgb( 89, 99, 0, 0.4)
+}
+img {
+            width: 200px;
+            height: 200px;
+        }
