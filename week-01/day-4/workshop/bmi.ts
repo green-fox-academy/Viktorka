@@ -1,4 +1,4 @@
-let weight:number = 75;
-let height:number = 1.84;
+let massInKg:number = 81.2;
+let heightInM:number = 1.78;
 
-console.log(weight/(height*height))
+console.log(massInKg/(heightInM*heightInM))
