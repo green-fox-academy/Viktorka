@@ -4,7 +4,7 @@ let c:number = 5; // workdays
 let d:number = 52; //weekly work hours
 let e:number = d/c; //daily work hours
 let f:number = (a/e)*100; //% of coding hours in a semester
-
+let g:number = Math.round (f);
 
 console.log(a*b*c+(' hours are spent with coding'))
-console.log(f+(' % of hours are spent with coding in a semester'))
+console.log(g+(' % of hours are spent with coding in a semester'))
