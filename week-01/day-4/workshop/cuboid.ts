@@ -6,9 +6,9 @@
 
 
 
-let a:number = 29;
-let b:number = 31;
-let c:number = 44;
+let a:number = 29.5;
+let b:number = 31.3;
+let c:number = 44.11;
 
 let surface:number = 2*(a*b+a*c+b*c);
 let volume:number = a*b*c
