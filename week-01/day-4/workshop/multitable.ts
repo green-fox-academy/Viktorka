@@ -1,4 +1,4 @@
-let number: number = 15;
+let number: number = 1523;
 let m:number = 0;
 
 while (m < 10){ m++;

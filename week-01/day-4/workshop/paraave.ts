@@ -2,6 +2,8 @@
 // Example input: 5
 // Example output: Sum: 15, Average: 3
 
+'use strict';
+
 let input: number = 5;
 let sum: number = 0;
 
