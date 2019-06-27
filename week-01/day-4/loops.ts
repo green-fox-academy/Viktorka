@@ -1,13 +1,15 @@
 let times:number=0
 
 
-while(times < 3){
-    console.log("nota", times);
+do {
     times ++;
+    console.log("nota", times);
+    
 }
+while(times < 10);
 
 
 
-for (let iterator:number =0; iterator < 100; iterator ++ ){
+for (let iterator:number =0; iterator < 5; iterator ++ ){
     console.log(iterator);
 }
