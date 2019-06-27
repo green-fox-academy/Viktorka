@@ -7,4 +7,4 @@ let f:number = (a/e)*100; //% of coding hours in a semester
 
 
 console.log(a*b*c+(' hours are spent with coding'))
-console.log(f+(' % percentage of hours are spent with coding in a semester'))
+console.log(f+(' % of hours are spent with coding in a semester'))
