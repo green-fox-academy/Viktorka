@@ -1,5 +1,9 @@
 let number: number = 15;
+let m:number = 0;
 
+while (m < 10){ m++;
+    console.log(m+" * "+number+"="+m*number)
+}
 // Create a program that
 // prints the multiplication table with number
 //
