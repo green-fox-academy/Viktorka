@@ -1,6 +1,9 @@
 // String
-let welcome: string = ('Hey you!');
+let welcome: string = 'Hello, World';
+let a: string = 'Hey you!';
+welcome = a;
 console.log(welcome);
+
 
 // Boolean
 let isAwesome: boolean = true;
