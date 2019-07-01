@@ -14,5 +14,10 @@ function printNumberAndChangeIt(inputNumber: number) {
     console.log(doubledValue);
 }
 
+function multiplication(base: number, another: number): number {
+    return base * another;
+}
 printNumberAndChangeIt(13);
 printNumberAndChangeIt(11);
+
+console.log(multiplication(2, 9));
