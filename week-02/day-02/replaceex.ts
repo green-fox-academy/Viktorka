@@ -10,3 +10,4 @@ let newStr = example.replace(toReplace, "galaxy" )
 console.log(newStr);
 
 export = example;
+
