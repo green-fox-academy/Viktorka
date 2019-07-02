@@ -11,7 +11,7 @@
 //      - Diablo
 
 let todoText: string = ' - Buy milk\n';  // \n breaks line
-todoText=todoText.concat(" - Download games\n    -Diablo");
+todoText=todoText.concat(" - Download games\n\t-Diablo"); //\t adds indention  
 todoText=["My todo \n",todoText].join(""); //join "My todo" and buymilk/downloadgames/diablo structure together in line
 
 
