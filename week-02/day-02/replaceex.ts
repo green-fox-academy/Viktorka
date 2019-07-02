@@ -7,7 +7,10 @@ let example: string = 'In a dishwasher far far away';
 // Expected ouput: In a galaxy far far away
 
 let newStr = example.replace(toReplace, "galaxy" )
-console.log(newStr);
+
+example=newStr;
+
+console.log(example);
 
 export = example;
 

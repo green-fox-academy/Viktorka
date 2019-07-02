@@ -5,9 +5,9 @@
 
 let reversed: string = `.eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI`;
 
-let splitMe:string [] = reversed.split("");
-let reverseMe = splitMe.reverse();
-let showMe = reverseMe.join("");
+let splitMe:string [] = reversed.split(""); //making it into an array by splitting
+let reverseMe = splitMe.reverse(); //reverse array
+let showMe = reverseMe.join(""); //join together
 
 console.log(showMe)
 
