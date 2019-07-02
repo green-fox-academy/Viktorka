@@ -21,7 +21,7 @@ export = {}; // wont show up reused variable names as error
 
 /* let single: string = 'single quotes'
 let double:string= "double quotes"
-let backTick:string='Today is ${(100 ** 2)-1}';
+let backTick:string='Today is ${(100 ** 2)-1}'; //doesnt work!!!!!!!!!!!
 
 console.log(single, double, backTick)
 
@@ -57,3 +57,4 @@ let textToSlice: string = "1234567890";
 let sliced: string = textToSlice.slice(4, -3); // -3 -> last 3 character(counting from the end)
 
 console.log(sliced);
+
