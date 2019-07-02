@@ -25,7 +25,7 @@ console.log(myMap.size); // Print how many key-value pairs are in the map
 console.log(myMap.get(99)); // Print the value that is associated with key 99
 
 myMap.delete(97); // Remove the key-value pair where with key 97
-// console.log(myMap);
+
 
 if (myMap.has(100) == true) {   // Print whether there is an associated value with key 100 or not
     console.log("Yes there is");

@@ -3,7 +3,7 @@
 // Add "always takes longer than" between the words "It" and "you"
 
 let quote: string = `Hofstadter's Law: It you expect, even when you take into account Hofstadter's Law.`;
-quote=quote.replace("you","always takes longer than you");
+quote = quote.replace("you", "always takes longer than you");
 // let quote2:string =quote.replace("you","always takes longer than you");
 
 //console.log(quote2)

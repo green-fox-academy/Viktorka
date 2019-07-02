@@ -16,15 +16,15 @@ list.forEach(function (element) { // Iterate through the list and print out each
     console.log(element);
 })
 
-for (let i = 0; i < list.length; i++){ // Iterate through the list and print
-    console.log((i+1)+". "+list[i] );
+for (let i = 0; i < list.length; i++) { // Iterate through the list and print
+    console.log((i + 1) + ". " + list[i]);
 }
 
-list.splice(1,1); // remove 2nd element
+list.splice(1, 1); // remove 2nd element
 console.log(list);
 
 list.reverse(); // reverse order
 console.log(list);
 
-list.splice(0,list.length); // remove all element
-console.log(list,list.length);
+list.splice(0, list.length); // remove all element
+console.log(list, list.length);
