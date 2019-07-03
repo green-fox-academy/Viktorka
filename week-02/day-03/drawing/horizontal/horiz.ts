@@ -10,14 +10,24 @@ const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 // and draws a 50 long horizontal line from that point.
 // Draw at least 3 lines with that function using a loop.
 
-let xCord:number[]=[0, 400, 300];
-let yCord:number[]=[50, 300,223];
-
+//let xCord:number[]=[0, 400, 300];
+//let yCord:number[]=[50, 300,223];
 ctx.beginPath();
-for (let i:number=0 ; i<3; i++) {
+function horizontalYo (xCord:number,yCord:number) {
+        ctx.moveTo(xCord,yCord);
+        ctx.lineTo(xCord+50,yCord);
+        ctx.stroke()
+}
+
+for (let i:number=50 ; i<150; i+=50) {
+    horizontalYo(i,i)
+}
+
+horizontalYo(200,200)
+
+/*for (let i:number=0 ; i<3; i++) {
     
     ctx.moveTo(xCord[i],yCord[i]);
     ctx.lineTo(xCord[i]+50,yCord[i]);
         
-}
-ctx.stroke()
+} */

@@ -9,14 +9,20 @@ const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 // and draws a line from that point to the center of the canvas
 // Draw at least 3 lines with that function using a loop.
 
-let xCord:number[]=[0, 400, 300]
-let yCord:number[]=[50, 300,223]
+/* let xCord:number[]=[0, 400, 300]
+ let yCord:number[]=[50, 300,223] */
 
 ctx.beginPath();
-for (let i:number=0 ; i<3; i++) {
+function draw3lines(xCord: number, yCord: number) {
+    ctx.moveTo(xCord, yCord);
+    ctx.lineTo(300, 200);
     
-    ctx.moveTo(xCord[i],yCord[i]);
-    ctx.lineTo(300,200);
-        
-}
-ctx.stroke()
+
+ for (let i:number=0 ; i<3; i++) {
+  ctx.moveTo(xCord*i,yCord*i);
+  ctx.lineTo(300,200);
+  ctx.stroke()
+ }
+ } 
+
+draw3lines(250, 150)
