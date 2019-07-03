@@ -1,7 +1,7 @@
 'use strict';
 export = {}
 const myCanvasWidth:number = 600;
-const myCanvasHeight:number = 800;
+const myCanvasHeight:number = 400;
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 canvas.width=myCanvasWidth;
 canvas.height=myCanvasHeight;
