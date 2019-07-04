@@ -32,6 +32,7 @@ function connectMe(myArray: any) {
 
 
 connectMe(wut)
+connectMe(box)
 /*
 ctx.moveTo(box[0][0], box[0][1]);
 ctx.lineTo(box[1][0], box[1][1]);
