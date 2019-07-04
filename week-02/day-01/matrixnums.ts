@@ -59,15 +59,15 @@ console.log(matrix) */
 
 let sizeVariable: number = 4;
 let matrix: number[][] = [
-    [1, 2, 3, 4]
+  [1, 2, 3, 4]
 ];
-for (let index:0; index<sizeVariable; index++){
-    let row:number []= [];
-    for (let inner:number=0; inner<sizeVariable; inner++ ){
-        if (sizeVariable-inner-1 ===index){
-            row.push(1);
-        } else ( row.push(0));
-    }
-    matrix.push(row);
+for (let index: 0; index < sizeVariable; index++) {
+  let row: number[] = [];
+  for (let inner: number = 0; inner < sizeVariable; inner++) {
+    if (sizeVariable - inner - 1 === index) {
+      row.push(1);
+    } else (row.push(0));
+  }
+  matrix.push(row);
 }
 console.log(matrix);
