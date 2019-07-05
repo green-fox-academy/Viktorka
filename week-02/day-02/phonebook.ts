@@ -20,16 +20,18 @@ let phoneBook:any = {
     "Brooke P.Askew": "307-687-2982",
 }
 
-console.log(phoneBook["John K.Miller"]); //his phone number
-/*for (let nameOf in phoneBook) {
-    if(phoneBook["307-687-2982"]){
-        console.log(nameOf)
-    } 
-} */
+// console.log(phoneBook["John K.Miller"]); //his phone number
+
+console.log(Object.keys(phoneBook)[4])  // get key from value
+//console.log(Object.keys(phoneBook))  // get key from value
+
+function pb(){
+    
+}
 
 // console.log(Object.keys(phoneBook["307-687-2982"]))
 
-// console.log(phoneBook["307-687-2982"])
+
 let areTheyIn:string = "Chris E. Myers"
 if (phoneBook.hasOwnProperty(areTheyIn)==false) {
     console.log("We don't know ):")

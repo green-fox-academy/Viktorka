@@ -19,3 +19,15 @@ todoText=["My todo \n",todoText].join(""); //join "My todo" and buymilk/download
 
 
 console.log(todoText);
+
+
+function makeItWhole() {
+    let stringBefore: string = 'My todo: \n';
+    let stringAfter1: string = ' - Download games\n';
+    let stringAfter2: string = '\t- Diablo';
+
+    todoText = stringBefore.concat(todoText).concat(stringAfter1).concat(stringAfter2);
+    console.log(todoText);
+}
+
+makeItWhole();

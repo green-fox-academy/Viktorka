@@ -7,7 +7,9 @@ export = {}
 
 // Fill the canvas with a checkerboard pattern.
 let a: number;
-
+ctx.fillStyle="yellow"
+ctx.fillRect(0,0,600,400)
+ctx.fillStyle="green"
 function check(size: number) {
     ctx.strokeRect(size, size, size, size);
     

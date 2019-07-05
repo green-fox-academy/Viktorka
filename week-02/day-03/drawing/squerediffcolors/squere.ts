@@ -7,7 +7,7 @@ const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
 // draw a box that has different colored lines on each edge.
 export = {}
-ctx.beginPath();
+
 ctx.strokeStyle= "rgb(255,0,0)";
 ctx.moveTo(250,150);
 ctx.lineTo(350,150);
