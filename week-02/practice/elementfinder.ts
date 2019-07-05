@@ -7,7 +7,7 @@
 const numbers: number[] = [1, 2, 3, 4, 5,7, 6, 8];
 
 function containsSeven(myArray: number[]):number[] {
-    if (myArray.hasOwnProperty("7") !== true) {
+    if (myArray.hasOwnProperty(7) !== true) {
         console.log("Noooooo");
 
     } else {

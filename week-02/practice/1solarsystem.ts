@@ -12,11 +12,11 @@
 
 let planetList: string[] = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Uranus', 'Neptune'];
 function univerze(myArray: string[]): string[] {
-    for (let i: number = 0; i < myArray.length; i++) {
-        myArray = myArray.splice(5,0,"Saturn");
+    if (myArray.hasOwnProperty("Saturn")==false) {
+        myArray.splice(5,0,"Saturn");
 
     }
-    return planetList;
+    return myArray;
 }
 console.log(univerze(planetList))
 
