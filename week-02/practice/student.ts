@@ -40,14 +40,28 @@ function allTheCandies() {
 allTheCandies()
 
 function lessThanFive() {
+    let sum: number = 0;
     let lessArray: number[] = [];
     let sumAgeArray: number[] = []
     for (let i: number = 0; i < students.length; i++) {
 
 
         sumAgeArray.push(students[i].candies)
+        //console.log(sumAgeArray)
 
-    } console.log(sumAgeArray)
+        if (sumAgeArray[i] < 5) {
+            let a: number = sumAgeArray.indexOf(sumAgeArray[i], i)
+            // console.log(a)
+            lessArray.push(students[a].age)
+            // console.log(lessArray)
+        }
+    }
+    for (let index: number = 0; index < lessArray.length; index++) {
+        sum = sum + lessArray[index]
+    } console.log(sum)
 }
+
+
+
 
 lessThanFive()
