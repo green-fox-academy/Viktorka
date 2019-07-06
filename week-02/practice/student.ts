@@ -15,3 +15,39 @@ const students: any[] = [
 // create a function that takes a list of students and logs:
 // - The sum of the age of people who have less than 5 candies
 
+// function allTheCandies(students: any) {
+
+// }
+
+let woot: number = 0;
+let allCandies: number;
+
+function allTheCandies() {
+    let sumArray: number[] = [];
+
+    for (let i: number = 0; i < students.length; i++) {
+
+
+        sumArray.push(students[i].candies)
+
+    }
+    for (let i: number = 0; i < sumArray.length; i++) {
+        woot = woot + sumArray[i]
+
+    } console.log(woot)
+
+}
+allTheCandies()
+
+function lessThanFive() {
+    let lessArray: number[] = [];
+    let sumAgeArray: number[] = []
+    for (let i: number = 0; i < students.length; i++) {
+
+
+        sumAgeArray.push(students[i].candies)
+
+    } console.log(sumAgeArray)
+}
+
+lessThanFive()

@@ -1,0 +1,6 @@
+
+
+
+function armstrongNum(myArray:number){
+
+}
