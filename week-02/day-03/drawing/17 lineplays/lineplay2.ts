@@ -57,24 +57,43 @@ function linePlaysDouble(x: number, y: number) {
     let sqrt: number = Math.sqrt(y);
     ctx.beginPath()  //y = mekkora legyen felosztva
     ctx.moveTo(length / sqrt, 0)
-    ctx.strokeStyle = "black"
+
     for (let i: number = 0; i < length / sqrt; i += x) {
-        // ctx.strokeStyle = "purple";
+        ctx.strokeStyle = "purple";
         ctx.lineTo(length / sqrt, i);
         ctx.stroke();
         ctx.moveTo(x + i, 0);
     }
+    ctx.moveTo((length / sqrt), 0)
+
+    for (let i: number = 0; i < length / sqrt; i += x) {
+        ctx.lineTo((length / sqrt) + (length / sqrt), i);
+        ctx.stroke();
+        ctx.moveTo(x + i + (length / sqrt), 0);
+    }
+
+
 
 
     ctx.beginPath();
-    ctx.moveTo(length / sqrt, 0);
+    ctx.moveTo(0, length / sqrt);
     ctx.strokeStyle = "orange";
     for (let i: number = 0; i < length / sqrt; i += x) {
 
 
-        ctx.lineTo(i + length / sqrt, length / sqrt);
+        ctx.lineTo(i /*+ (length / sqrt)*/, length / sqrt);
         ctx.stroke();
-        ctx.moveTo(0 + length / sqrt, x + i);
+        ctx.moveTo(0 /*+ length / sqrt*/, x + i);
     }
+    ctx.moveTo(0, (length / sqrt))
+
+    for (let i: number = 0; i < length / sqrt; i += x) {
+        ctx.lineTo(i, (length / sqrt) + (length / sqrt));
+        ctx.stroke();
+        ctx.moveTo(0, x + i + (length / sqrt));
+    }
+
 }
-linePlaysDouble(20, 4)
+
+
+linePlaysDouble(10, 4)

@@ -9,6 +9,7 @@ ctx.beginPath();
 
 
 function linePlays(x: number) {
+    
     for (let i: number = 0; i < length; i += x) {
 
         ctx.strokeStyle = "purple";
