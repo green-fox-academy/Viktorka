@@ -13,5 +13,5 @@ try {
     let readMe=fs.readFileSync('my-files.txt', 'utf-8');
 console.log(readMe)
 } catch (e) {
-    console.log("Unable to read file:my-file.txt");
+    console.log("Unable to read file");
 }
