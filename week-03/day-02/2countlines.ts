@@ -27,6 +27,6 @@ function numberOfLines(filename: string) {
 
 }
 
-numberOfLines('my-files.txt')
+numberOfLines('my-file.txt')
 
 
