@@ -25,7 +25,7 @@ function print() {
         let b: any = ingredients[i].needsCooling
         let c: any = ingredients[i].inStock
         let d:any=a+yesOrNo()+c
-        console.log("| "+a + " "+ " | "+ yesOrNo() +" | " + c + "|");
+        console.log("| "+a + " "+ " | "+ yesOrNo() +" | " + c + "|"); 
     }
 }
 print()

@@ -1,6 +1,6 @@
 'use strict';
 export={}
-const myCanvasWidth: number = 800;
+const myCanvasWidth: number = 600;
 const myCanvasHeight: number = 600;
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 canvas.width = myCanvasWidth;
@@ -15,7 +15,7 @@ const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 // Create a loop that fills the canvas with a rainbow of colored squares
 // red, orange, yellow, green, blue, indigo, violet
 let colourChoice:any [] = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
-let size:number=50;
+let size:number=canvas.width/7;
 let colour="red"
 function rainboW(size: number, colour:any) {
     ctx.fillStyle=colour;
@@ -26,7 +26,7 @@ for (let i:number=7 ; i > 0; i--){
     rainboW(size*i,colourChoice[i])
 
 
-
+}
 
 
 

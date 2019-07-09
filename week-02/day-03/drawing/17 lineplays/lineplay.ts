@@ -8,37 +8,31 @@ let length: number = 600;
 ctx.beginPath();
 
 
-function linePlays(x: number) {
+// function linePlays(x: number) {
     
-    for (let i: number = 0; i < length; i += x) {
+//     for (let i: number = 0; i < length; i += x) {
 
-        ctx.strokeStyle = "purple";
-        ctx.lineTo(600, i);
-        ctx.stroke();
-        ctx.moveTo(20 + i, 0);
-
-
-
-    }
-    ctx.beginPath();
-    for (let i2: number = 0; i2 < length; i2 += x) {
-
-        ctx.strokeStyle = "green";
-        ctx.lineTo(i2, length);
-        ctx.stroke();
-        ctx.moveTo(0, x + i2);
-    }
-}
+//         ctx.strokeStyle = "purple";
+//         ctx.lineTo(600, i);
+//         ctx.stroke();
+//         ctx.moveTo(20 + i, 0);
 
 
 
-linePlays(30)
+//     }
+//     ctx.beginPath();
+//     for (let i2: number = 0; i2 < length; i2 += x) {
+
+//         ctx.strokeStyle = "green";
+//         ctx.lineTo(i2, length);
+//         ctx.stroke();
+//         ctx.moveTo(0, x + i2);
+//     }
+// }
 
 
 
-
-
-
+// linePlays(30)
 // function linePlays2(x: number, y: number) {
 //     let startPoint: number = Math.sqrt(y);
 //     for (let xz: number = 0; xz < 4; xz++) {
@@ -63,5 +57,24 @@ linePlays(30)
 
 //     }
 // }
+function drawTheLines(numberOfLines: number, topColor: any, bottomColor: any) {
+    ctx.strokeStyle = topColor;
+    for (let i: number = 1; i < numberOfLines; i++) {
+        ctx.beginPath();
+        ctx.moveTo(length / numberOfLines * i, 0);
+        ctx.lineTo(length, length / numberOfLines * i);
+        ctx.stroke();
+    }
+    ctx.closePath();
+    ctx.strokeStyle = bottomColor;
+    for (let i: number = 1; i < numberOfLines; i++) {
+        ctx.beginPath();
+        ctx.moveTo(0, length / numberOfLines * i);
+        ctx.lineTo(length / numberOfLines * i, length);
+        ctx.stroke();
+    }
+}
+
+drawTheLines(50, '#f08080', '#b6fcd5');
 
 
