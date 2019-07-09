@@ -14,6 +14,7 @@ function copyCat(copyTo: string, copyFrom: string): boolean {
         return true;
     } catch {
         return false
-    }
+    } 
 }
 copyCat("myfiles2.txt","my-file.txt")
+console.log("True")
