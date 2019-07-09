@@ -14,7 +14,7 @@ const fs = require('fs');
 
 function doTheHivie(x:string, y: string, z: number) {
     try {
-        for (let i: number = 0; i <= z; i++){
+        for (let i: number = 0; i < z; i++){
             fs.appendFileSync(x, `\n${y}`, 'utf-8')
         }
         console.log(fs.appendFileSync(x, y, z))
@@ -24,4 +24,4 @@ function doTheHivie(x:string, y: string, z: number) {
 
     }
 }
-doTheHivie("4myfile.txt","3",3)
+doTheHivie("4myfile.txt","4",3)

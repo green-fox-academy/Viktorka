@@ -6,11 +6,11 @@
 
 declare function require(path : string) : any;
 const fs = require('fs');
-fs.writeFileSync('my-file.txt', 'asd ddd \n dda\n asd')
+//fs.writeFileSync('my-file.txt', 'asd ddd \n dda\n asd')
 
 
 try {
-    let readMe=fs.readFileSync('my-files.txt', 'utf-8');
+    let readMe=fs.readFileSync('my-files55.txt', 'utf-8');
 console.log(readMe)
 } catch (e) {
     console.log("Unable to read file");
