@@ -9,16 +9,16 @@ export default class Cookie {
     flavour: string;
     static lastId: number = 1;
 
-    bakeMe() {
+    bakeMe():void {
         this.status = "baked to perfection"
     }
 
-    checkMyStatus() {
+    checkMyStatus():void {
         return this.status;
     }
 
     //static method ==> property for the whole class, true for all all units in the class
-    static howAreYouToday(mood: string) {
+    static howAreYouToday(mood: string):string {
         return `I am doing ${mood}`;
     }
 
