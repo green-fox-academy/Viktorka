@@ -3,11 +3,11 @@
 export default class Cookie {
     shape: string;   //error! property has no initializer and most definitaly not assigned to in the constructor msg. 
     hasSparkles: boolean;
-    id:number;
-    private status: string/*="raw"*/;
-    static isYammie:boolean =true;
+    id: number;
+    private status: string = 'raw';
+    static isYammie: boolean = true;
     flavour: string;
-    static lastId:number=1;
+    static lastId: number = 1;
 
     bakeMe() {
         this.status = "baked to perfection"
@@ -23,7 +23,7 @@ export default class Cookie {
     }
 
 
-    constructor(shape: string = "giraffe", hasSparkles: boolean, flavour?: string) {
+    constructor(shape: string , hasSparkles: boolean, flavour: string) {
         this.shape = shape;
         this.hasSparkles = hasSparkles;
         this.flavour = flavour;
