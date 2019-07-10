@@ -18,8 +18,8 @@ class Animal {
         this.thirst = 50;
     }
 
-    eat(): void {
-        this.hunger--;
+    eat(): number {
+       return this.hunger--;
     }
     drink(): void {
         this.thirst--;

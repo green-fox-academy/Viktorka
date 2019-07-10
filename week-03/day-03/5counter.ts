@@ -7,11 +7,11 @@
 // also we can reset() the value to the initial value
 
 class Counter {
-    integer: number ;
+    integer: number;
 
 
 
-    constructor(integer: number=0) {
+    constructor(integer: number = 0) {
         this.integer = integer
     }
     add() {
@@ -23,9 +23,11 @@ class Counter {
     }
 
     reset() {
-        this.integer=0;
+        this.integer = 0;
     }
-
+    addAny(x: number) {
+        this.integer = this.integer + x;
+    }
 
 }
 
@@ -37,4 +39,6 @@ newCounter.add()
 newCounter.add()
 newCounter.get()
 newCounter.reset()
+newCounter.get()
+newCounter.addAny(500000)
 newCounter.get()
