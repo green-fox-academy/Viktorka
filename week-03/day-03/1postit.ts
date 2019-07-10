@@ -22,4 +22,6 @@ let myFirstPostIt: Postit = new Postit("orange", "Idea1", "blue");
 let mySecondPostIt: Postit = new Postit("pink", "Awesome", "black");
 let myThirdPostIt: Postit = new Postit("yellow", "Superb!", "green");
 
-console.log(myFirstPostIt,mySecondPostIt,myThirdPostIt)
+console.log(myFirstPostIt)
+console.log(mySecondPostIt)
+console.log(myThirdPostIt)
