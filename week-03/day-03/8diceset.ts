@@ -1,5 +1,5 @@
 class DiceSet {
-    dice: number[];
+    dice: number[] = [];
     readonly numOfDices: number = 6;
 
     roll(): number[] {
@@ -20,7 +20,7 @@ class DiceSet {
         }
     }
 
-    getCurrent(index?: number): number[] | number {
+    getCurrent(index?: number): number[] | number | undefined {
         if (index === undefined) {
             for (let i = 0; i < this.numOfDices; i++) {
                 return this.dice;
@@ -31,28 +31,65 @@ class DiceSet {
     }
 }
 
+
+
+
 // You have a `DiceSet` class which has a list for 6 dice
 // You can roll all of them with roll()
 // Check the current rolled numbers with getCurrent()
 // You can reroll with reroll()
 // Your task is to roll the dice until all of the dice are 6
-
 let diceSet = new DiceSet();
-console.log(diceSet.roll());
+//diceSet.roll();
+// console.log(diceSet.getCurrent());
+function rollDemUntil6(newDiceSet: DiceSet):void {
+    newDiceSet.roll();
+    console.log(newDiceSet.getCurrent());
+    let currentStatus: any = newDiceSet.getCurrent();
+    for (let i: number = 0; i < currentStatus.length; i++) {
+        while (currentStatus[i] < 6) {
+            diceSet.reroll(i);
+            currentStatus = newDiceSet.getCurrent();
+        }
+    }
+}
+rollDemUntil6(diceSet)
 console.log(diceSet.getCurrent());
 
-console.log("------------------");
 
-diceSet.reroll();
-console.log(diceSet.getCurrent());
+// function rollsTheDiceUntilAllOfThemAreSix(inpDiceSet: DiceSet): void {
+//     inpDiceSet.roll();
+//     let currentState: any = inpDiceSet.getCurrent();
+//     for (let i: number = 0; i < currentState.length; i ++) {
+//         while (currentState[i] < 6) {
+//             inpDiceSet.reroll(i);
+//             currentState = inpDiceSet.getCurrent();
+//         }
+//     }
+// }
 
-console.log("------------------");
+// rollsTheDiceUntilAllOfThemAreSix(diceSet);
+// console.log(diceSet.getCurrent());
 
-console.log(diceSet.getCurrent(5));
-diceSet.reroll();
-console.log(diceSet.getCurrent());
 
-console.log("------------------");
 
-diceSet.reroll(4);
-console.log(diceSet.getCurrent());
+
+
+
+
+// console.log("------------------");
+
+// diceSet.reroll();
+// console.log(diceSet.getCurrent());
+
+// console.log("------------------");
+
+// console.log(diceSet.getCurrent(5));
+// diceSet.reroll();
+// console.log(diceSet.getCurrent());
+
+// console.log("------------------");
+
+// diceSet.reroll(4);
+// console.log(diceSet.getCurrent());
+

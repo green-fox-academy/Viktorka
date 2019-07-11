@@ -1,8 +1,7 @@
-
 import { Thing } from './7thing';
 import { Fleet } from './7fleets';
 
-let fleet = new Fleet();
+let fleet: Fleet = new Fleet();
 
 // -  You have the `Thing` class
 // -  You have the `Fleet` class
@@ -19,3 +18,50 @@ let fleet = new Fleet();
 
 // Hint: You have to create a `print()` method as well 
 
+// ?? fleet will create [], thing will create "get milk" etc, print needs done
+
+let milk: Thing = new Thing("Get milk");
+let obstacles: Thing = new Thing("Remove the obstacles");
+let standUp: Thing = new Thing("Stand up");
+let eat: Thing = new Thing("Eat lunch");
+
+
+standUp.complete();
+eat.complete();
+
+
+
+class FleetOfThings {
+    private FleetOfThings: Fleet;
+
+    constructor() {
+        this.FleetOfThings = new Fleet;
+    }
+
+    main(thing: Thing): void {
+        this.FleetOfThings.add(thing);
+    }
+
+    print() {
+        let returnMsg: string='';
+        let arrayOfThings: Thing[] = this.FleetOfThings.getThings();
+        arrayOfThings.forEach(function (element) {
+            returnMsg += arrayOfThings.indexOf(element) + 1 + ".";
+            if (element.getCompleted()) {
+                returnMsg += "[X]";
+            } else {
+                returnMsg += "[ ]";
+            }
+            returnMsg += element.getName();
+        })
+        return returnMsg;
+    }
+
+
+}
+let newFleetOfThings:FleetOfThings = new FleetOfThings
+newFleetOfThings.main(milk)
+newFleetOfThings.main(obstacles)
+newFleetOfThings.main(standUp)
+newFleetOfThings.main(eat)
+console.log(newFleetOfThings.print())
