@@ -22,21 +22,16 @@ const students: any[] = [
 // - Who has got more candies than 4 candies
 
 let woot: number = 0;
-let allCandies: number;
 
+let allCandies: number=0;
 function allTheCandies() {
     let sumArray: number[] = [];
-
     for (let i: number = 0; i < students.length; i++) {
-
-
         sumArray.push(students[i].candies)
-
     }
     for (let i: number = 0; i < sumArray.length; i++) {
-        woot = woot + sumArray[i]
-
-    } console.log(woot)
+        allCandies = allCandies + sumArray[i]
+    } console.log(allCandies)
 
 }
 
@@ -46,11 +41,8 @@ function lessThanFive() {
     let lessArray: number[] = [];
     let sumAgeArray: number[] = []
     for (let i: number = 0; i < students.length; i++) {   // reduce or map function alternative on the array
-
-
         sumAgeArray.push(students[i].candies)
         //console.log(sumAgeArray)
-
         if (sumAgeArray[i] < 5) {
             let a: number = sumAgeArray.indexOf(sumAgeArray[i], i)
             // console.log(a)
@@ -76,9 +68,9 @@ function averageCandies() {
 
     }
     for (let i: number = 0; i < averageArray.length; i++) {
-        average = (average + averageArray[i]) 
+        average = (average + averageArray[i])
 
-    } console.log(average/averageArray.length)
+    } console.log(average / averageArray.length)
 
 }
 
