@@ -7,7 +7,7 @@ class Tree extends Plant {
         super(name, currentWater)
     }
 
-    Watering(number: number) {
+    Watering(number: number) :void {
         this.currentWater = this.currentWater + (number * 0.4)
     }
 
