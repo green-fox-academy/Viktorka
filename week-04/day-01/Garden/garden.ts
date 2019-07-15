@@ -40,37 +40,32 @@ class Garden {
         let counterOfPlantsThatNeedsWater: number = 0;
         for (let i: number = 0; i < this.plants.length; i++) {
             if (this.plants[i].currentWater < 5 && this.plants[i] instanceof Flower) {
-                counterOfPlantsThatNeedsWater++
+                counterOfPlantsThatNeedsWater++;
             } else if (this.plants[i].currentWater < 10 && this.plants[i] instanceof Tree) {
-                counterOfPlantsThatNeedsWater++
+                counterOfPlantsThatNeedsWater++;
             }
 
         }
         for (let i: number = 0; i < this.plants.length; i++) {
             if (this.plants[i].currentWater < 5 && this.plants[i] instanceof Flower) {
-                this.plants[i].Watering((number / counterOfPlantsThatNeedsWater))
+                this.plants[i].Watering((number / counterOfPlantsThatNeedsWater));
             } else if (this.plants[i].currentWater < 10 && this.plants[i] instanceof Tree) {
-                this.plants[i].Watering((number / counterOfPlantsThatNeedsWater))
-
+                this.plants[i].Watering((number / counterOfPlantsThatNeedsWater));
             }
         }
-
     }
+
     Watering2(number: number): void {
         console.log("Watering with " + number);
         theGarden.status();
         let counterOfPlantsThatNeedsWater: number = 0
         this.plants.forEach(function (element) {
-            if (element.currentWater < 5 && element instanceof Flower) {
-                counterOfPlantsThatNeedsWater++
-            } else if (element.currentWater < 10 && element instanceof Tree) {
-                counterOfPlantsThatNeedsWater++
+            if (element.currentWater < 5 && element instanceof Flower || element.currentWater < 10 && element instanceof Tree) {
+                counterOfPlantsThatNeedsWater++;
             }
         })
         this.plants.forEach(function (element) {
-            if (element.currentWater < 5 && element instanceof Flower) {
-                element.Watering(number / counterOfPlantsThatNeedsWater)
-            } else if (element.currentWater < 10 && element instanceof Tree) {
+            if (element.currentWater < 5 && element instanceof Flower || element.currentWater < 10 && element instanceof Tree) {
                 element.Watering(number / counterOfPlantsThatNeedsWater)
             }
         })
