@@ -85,15 +85,17 @@ restaurant.hire(chef1);
 restaurant.hire(chef2);
 restaurant.hire(manager);
 
-console.log(restaurant)
-restaurant.guestsArrived()
-restaurant.guestsArrived()
-restaurant.guestsArrived()
-console.log(chef1)
-chef1.cook("burger")
-chef1.cook("burger")
-chef1.cook("fries")
-console.log(chef1)
+// // console.log(restaurant)
+// restaurant.guestsArrived()
+// restaurant.guestsArrived()
+// restaurant.guestsArrived()
+// chef1.cook("burger")
+// chef1.cook("burger")
+// chef1.cook("fries")
+// console.log(manager)
 
-
-console.log(restaurant)
+let manager2: Manager = new Manager("m2", 600)
+console.log(manager,manager2)
+manager2.workMore()
+manager.workMore()
+console.log(manager,manager2)

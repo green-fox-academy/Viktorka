@@ -13,9 +13,9 @@ import Employee from "./employee";
 export default class Manager extends Employee {
     moodLevel: number;
 
-    constructor(name, experience = 0) {
+    constructor(name, experience = 0, moodLevel:number = 400) {
         super(name, experience);
-        this.moodLevel = 400;
+        this.moodLevel = moodLevel;
     }
 
     haveAmeeting() {
@@ -25,6 +25,27 @@ export default class Manager extends Employee {
     work() {
         this.experience++;
         this.haveAmeeting();
+        if (this.moodLevel <= -1) {
+            this.tantrum()
+        }
+    }
+    workMore() {
+        let theNumberOfDays: number = this.howManyDays();
+        for (let i: number = 0; i < theNumberOfDays; i++) {
+            this.work();
+
+        }
     }
 
+    howManyDays(): number {
+        let days: number = this.experience;
+        let theMoodLevel = this.moodLevel;
+        for (; days <= theMoodLevel; days++) {
+            theMoodLevel = theMoodLevel - days;              
+        } return days;
+
+    }
+    tantrum() {
+        console.log("FUCK THIS SHIT I'M OFF")
+    }
 }
