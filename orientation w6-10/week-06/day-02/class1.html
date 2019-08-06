@@ -23,10 +23,25 @@
     <p class="apple">apple</p>
     <p class="balloon">balloon</p>
     <p class="cat red-dot">cat</p>
-    <p>dolphin</p>
+    <p >dolphin</p>
 
     <script>
+    let paragraphs = document.querySelectorAll("p");
+    // console.log(paragraphs[3].className)
+    if (paragraphs[3].className==="dolphin"){
+        paragraphs[0].textContent="pear";
+    }
+
+    if (paragraphs[0].className==="apple"){
+        document.querySelector(".cat").innerText="dog";
+    }
+
+    document.querySelector(".apple").setAttribute("class","red");
+    let ballon = document.querySelector(".balloon");
+    ballon.style.borderRadius="0";
+    document.querySelector(".balloon").style.color="red"
     
+
     </script>
 
     <!-- You can work in the html or in a separate js file. Like:
