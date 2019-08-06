@@ -1,0 +1,30 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height:600px;
+  }
+  
+.item{
+
+width:300px;
+flex-grow:1;
+}
+
+.green{
+    background: lime;  
+    
+}
+
+.yellow{
+    background-color: yellow;
+    order:3;
+    flex-grow:3;
+}
+
+
+.purple{
+    background-color: purple;
+
+}
+
