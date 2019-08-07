@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Barmi</title>
+    <title>Cocktails</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
@@ -17,7 +17,7 @@
         <a href="http://localhost:3002/?alcohol=vodka">Vodka</a>
     </header>
     <br>
-    <table id="tableID">
+    <table id="tableID">    
         <tr>
             <th>Cocktails</th>
             <th>Price</th>
@@ -30,6 +30,9 @@
         <tr>
             <td>
                 <p class="makeMeBold"><%=cocktails[i].name%></p>
+                <% if(cocktails[i].isAlcoholic === false) {%>
+                    <p class="non">(non-alcoholic)</p>
+                    <% }%>
                 <p><%=cocktails[i].contains%></p>
             </td>
             <td>

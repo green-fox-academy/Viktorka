@@ -1,5 +1,5 @@
 h1 {
-    color: red;
+  color: tomato;
 }
 
 a {
@@ -22,6 +22,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 60%;
+    
   }
   
   td, th {
@@ -48,4 +49,8 @@ table {
 
   .makeMeBold{
     font-weight: bold;
+  }
+
+  .non {
+    align-items: flex-end;
   }
