@@ -9,27 +9,35 @@
 
 <body>
     <h1><%=title%></h1>
-    <a href="http://localhost:3002">All</a>
-    <a href="http://localhost:3002/?alcohol=rum">Rum</a>
-    <a href="http://localhost:3002/?alcohol=tequila">Tequila</a>
-    <a href="http://localhost:3002/?alcohol=gin">Gin</a>
-    <a href="http://localhost:3002/?alcohol=vodka">Vodka</a>
+    <header>
+        <a href="http://localhost:3002">All</a>
+        <a href="http://localhost:3002/?alcohol=rum">Rum</a>
+        <a href="http://localhost:3002/?alcohol=tequila">Tequila</a>
+        <a href="http://localhost:3002/?alcohol=gin">Gin</a>
+        <a href="http://localhost:3002/?alcohol=vodka">Vodka</a>
+    </header>
     <br>
-    <table>
+    <table id="tableID">
         <tr>
-            Cocktails
+            <th>Cocktails</th>
+            <th>Price</th>
         </tr>
         <tr>
-            Price
+
         </tr>
-        <ul>
-            <% for (let i=0; i< cocktails.length; i++){ %>
-            <li>
-                <%=cocktails[i].name%>
-                <%=cocktails[i].price%>
-            </li>
-            <% } %>
-        </ul>
+
+        <% for (let i=0; i< cocktails.length; i++){ %>
+        <tr>
+            <td>
+                <p class="makeMeBold"><%=cocktails[i].name%></p>
+                <p><%=cocktails[i].contains%></p>
+            </td>
+            <td>
+                <p class="makeMeBold"><%=cocktails[i].price%> Ft</p>
+            </td>
+        </tr>
+        <% } %>
+
 
     </table>
 </body>

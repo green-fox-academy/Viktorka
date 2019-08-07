@@ -6,20 +6,46 @@ a {
 display: inline-block;
 text-decoration: none;
 text-transform: uppercase;
+background-color: black;
+margin-right: 15px;
+color: white;
 }
 
+header{
+  display: flex;
+  
+}
+body {
+  background-color: black;
+}
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 60%;
   }
   
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+    
+    
+  }
+  th{
+    background-color :#dddddd;
+    color:black;
+    border: 1px solid black;
   }
   
   tr:nth-child(even) {
     background-color: #dddddd;
+    
+  }
+  tr:nth-child(odd){
+    background-color: black;
+    color:white;
+  }
+
+  .makeMeBold{
+    font-weight: bold;
   }
