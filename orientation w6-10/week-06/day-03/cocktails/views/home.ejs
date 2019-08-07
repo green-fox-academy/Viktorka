@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Barmi</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <h1><%=title%></h1>
+    <a href="http://localhost:3002">All</a>
+    <a href="http://localhost:3002/?alcohol=rum">Rum</a>
+    <a href="http://localhost:3002/?alcohol=tequila">Tequila</a>
+    <a href="http://localhost:3002/?alcohol=gin">Gin</a>
+    <a href="http://localhost:3002/?alcohol=vodka">Vodka</a>
+    <br>
+    <table>
+        <tr>
+            Cocktails
+        </tr>
+        <tr>
+            Price
+        </tr>
+        <ul>
+            <% for (let i=0; i< cocktails.length; i++){ %>
+            <li>
+                <%=cocktails[i].name%>
+                <%=cocktails[i].price%>
+            </li>
+            <% } %>
+        </ul>
+
+    </table>
+</body>
+
+</html>
