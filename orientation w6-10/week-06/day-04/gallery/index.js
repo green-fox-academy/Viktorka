@@ -2,11 +2,12 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 app.set('view engine', 'ejs');
-app.use(express.static('images'));
+app.use(express.static('gallery'));
 
 app.get('/', (req, res) => {
     res.render('home', { imageList: imageList });
 });
+
 
 const imageList = [
     { url: "1.jpg" },

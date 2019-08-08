@@ -6,18 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Panda gallery</title>
+    
 </head>
 
-<body>
-       <button>Previous</button>
-    <img src="1.jpg">
-    <button>Next</button>
+<body class="body">
+    <button class='previous'>Previous</button>
+    <img class="main" src="1.jpg" height="400" width="400">
+    <button class='next'>Next</button>
     <div>
         <% for (let i=0; i< imageList.length; i++){ %>
-        <img src=<%= imageList[i].url %> height="42" width="42">
+        <img class="small" src=<%= imageList[i].url %> height="42" width="42">
         <% } %>
     </div>
+    <script>
 
+        document.querySelector(".small").classList.add("currentImage");
+        let prevButton = document.querySelector(".previous");
+        let nextButton = document.querySelector(".next");
+        let mainImg = document.querySelector(".main");
+
+
+
+        nextButton.onclick = () => {
+            let nextImage = document.querySelector(".currentImage").nextElementSibling;
+            mainImg.src = nextImage.src;
+            document.querySelector(".currentImage").classList.remove("currentImage");
+            nextImage.classList.add("currentImage");
+            if (mainImg.nextElementSibling==null){
+                document.querySelector(".currentImage").classList.remove("currentImage")
+                document.querySelector(".small").classList.add("currentImage");
+                main.src="1.jpg";
+            }
+        }
+        prevButton.onclick = () => {
+            let prevImage = document.querySelector(".currentImage").previousElementSibling;
+            mainImg.src = prevImage.src;
+            document.querySelector(".currentImage").classList.remove("currentImage");
+            prevImage.classList.add("currentImage");
+        }
+
+
+    </script>
 </body>
 
 </html>
