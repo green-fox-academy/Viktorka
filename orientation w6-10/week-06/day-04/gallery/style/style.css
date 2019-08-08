@@ -6,3 +6,11 @@
 .small {
     margin-top: 20px
 }
+
+body {
+    display:flex;
+    
+}
+img {
+    align-self: center;
+}
