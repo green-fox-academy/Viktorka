@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Panda gallery</title>
+</head>
+
+<body>
+       <button>Previous</button>
+    <img src="1.jpg">
+    <button>Next</button>
+    <div>
+        <% for (let i=0; i< imageList.length; i++){ %>
+        <img src=<%= imageList[i].url %> height="42" width="42">
+        <% } %>
+    </div>
+
+</body>
+
+</html>
