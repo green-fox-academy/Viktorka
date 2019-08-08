@@ -10,45 +10,68 @@
 </head>
 
 <body class="body">
-    <button class='previous'>Previous</button>
-    <img class="main" src="1.jpg" height="400" width="400">
-    <button class='next'>Next</button>
-    <div>
-        <% for (let i=0; i< imageList.length; i++){ %>
-        <img class="small" src=<%= imageList[i].url %> height="42" width="42">
-        <% } %>
-    </div>
-    <script>
+    <button class='previous'>
+        <</button> <img class="main" src="1.jpg" height="400" width="400">
+            <button class='next'>></button>
+            <div>
+                <% for (let i=0; i< imageList.length; i++){ %>
+                <img class="small" src=<%= imageList[i].url %> height="42" width="42">
+                <% } %>
+            </div>
+            <script>
 
-        document.querySelector(".small").classList.add("currentImage");
-        let prevButton = document.querySelector(".previous");
-        let nextButton = document.querySelector(".next");
-        let mainImg = document.querySelector(".main");
+                document.querySelector(".small").classList.add("currentImage");
+                let prevButton = document.querySelector(".previous");
+                let nextButton = document.querySelector(".next");
+                let mainImg = document.querySelector(".main");
+
+                function onKeyPress(event) {
+                    switch (event.keyCode) {
+                        case 37:
+                            let prevImage = document.querySelector(".currentImage").previousElementSibling;
+                            if (prevImage === null) {
+                                let allElement = document.querySelectorAll(".small")
+                                prevImage = allElement[allElement.length - 1];
+                            }
+                            mainImg.src = prevImage.src;
+                            document.querySelector(".currentImage").classList.remove("currentImage");
+                            prevImage.classList.add("currentImage");
+                            break;
+                        case 39:
+                            let nextImage = document.querySelector(".currentImage").nextElementSibling;
+                            if (nextImage === null) {
+                                nextImage = document.querySelector(".small");
+                            }
+                            mainImg.src = nextImage.src;
+                            document.querySelector(".currentImage").classList.remove("currentImage");
+                            nextImage.classList.add("currentImage");
+                            break;
+                    }
+                }
 
 
+                nextButton.onclick = () => {
+                    let nextImage = document.querySelector(".currentImage").nextElementSibling;
+                    if (nextImage === null) {
+                        nextImage = document.querySelector(".small");
+                    }
+                    mainImg.src = nextImage.src;
+                    document.querySelector(".currentImage").classList.remove("currentImage");
+                    nextImage.classList.add("currentImage");
+                }
+                prevButton.onclick = () => {
+                    let prevImage = document.querySelector(".currentImage").previousElementSibling;
+                    if (prevImage === null) {
+                        let allElement = document.querySelectorAll(".small")
+                        prevImage = allElement[allElement.length - 1];
+                    }
+                    mainImg.src = prevImage.src;
+                    document.querySelector(".currentImage").classList.remove("currentImage");
+                    prevImage.classList.add("currentImage");
+                }
 
-        nextButton.onclick = () => {
-            let nextImage = document.querySelector(".currentImage").nextElementSibling;
-            if (nextImage === null) {
-                nextImage = document.querySelector(".small");
-            } 
-            mainImg.src = nextImage.src;
-            document.querySelector(".currentImage").classList.remove("currentImage");
-            nextImage.classList.add("currentImage");
-        }
-        prevButton.onclick = () => {
-            let prevImage = document.querySelector(".currentImage").previousElementSibling;
-            if (prevImage === null) {
-                let allElement = document.querySelectorAll(".small")
-                prevImage = allElement[allElement.length-1];
-            }
-            mainImg.src = prevImage.src;
-            document.querySelector(".currentImage").classList.remove("currentImage");
-            prevImage.classList.add("currentImage");
-        }
-
-
-    </script>
+                document.body.addEventListener('keydown', onKeyPress);
+            </script>
 </body>
 
 </html>
