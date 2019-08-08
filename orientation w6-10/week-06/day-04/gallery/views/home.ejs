@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Panda gallery</title>
-    
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body class="body">
@@ -29,17 +29,19 @@
 
         nextButton.onclick = () => {
             let nextImage = document.querySelector(".currentImage").nextElementSibling;
+            if (nextImage === null) {
+                nextImage = document.querySelector(".small");
+            } 
             mainImg.src = nextImage.src;
             document.querySelector(".currentImage").classList.remove("currentImage");
             nextImage.classList.add("currentImage");
-            if (mainImg.nextElementSibling==null){
-                document.querySelector(".currentImage").classList.remove("currentImage")
-                document.querySelector(".small").classList.add("currentImage");
-                main.src="1.jpg";
-            }
         }
         prevButton.onclick = () => {
             let prevImage = document.querySelector(".currentImage").previousElementSibling;
+            if (prevImage === null) {
+                let allElement = document.querySelectorAll(".small")
+                prevImage = allElement[allElement.length-1];
+            }
             mainImg.src = prevImage.src;
             document.querySelector(".currentImage").classList.remove("currentImage");
             prevImage.classList.add("currentImage");

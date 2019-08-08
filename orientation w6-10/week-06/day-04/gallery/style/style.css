@@ -1,3 +1,8 @@
-/* .currentImage {
-    border: 1px;
-} */
+.currentImage {
+    border: 10px;
+    border-color: red; 
+}
+
+.small {
+    margin-top: 20px
+}
