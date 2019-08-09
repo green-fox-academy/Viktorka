@@ -1,9 +1,28 @@
 'use strict'
-
-document.querySelector(".small").classList.add("currentImage");
+const imageList = [
+    { url: "1.jpg", text: "1" },
+    { url: "2.jpg", text: '2' },
+    { url: "3.jpg", text: '3' },
+    { url: "4.jpg", text: '4' },
+    { url: "5.jpg", text: '5' },
+    { url: "6.jpg", text: '6' },
+    { url: "7.jpg", text: "7" },
+    { url: "8.jpg", text: '8' },
+    { url: "9.jpg", text: '9' }
+]
+let currentImage = document.querySelector(".small").classList.add("currentImage");
 let prevButton = document.querySelector(".previous");
 let nextButton = document.querySelector(".next");
 let mainImg = document.querySelector(".main");
+let mainText = document.querySelector("figurecapture");
+
+function changeText() {
+    for (let i = 0; i < imageList.length; i++) {
+        if (currentImage.src === imageList[i].url) {
+            mainText = imageList[i].text;
+        }
+    }
+}
 
 function toPreviousImage() {
     let prevImage = document.querySelector(".currentImage").previousElementSibling;
@@ -14,6 +33,7 @@ function toPreviousImage() {
     mainImg.src = prevImage.src;
     document.querySelector(".currentImage").classList.remove("currentImage");
     prevImage.classList.add("currentImage");
+    changeText();
 }
 
 function toNextImage() {
@@ -24,6 +44,7 @@ function toNextImage() {
     mainImg.src = nextImage.src;
     document.querySelector(".currentImage").classList.remove("currentImage");
     nextImage.classList.add("currentImage");
+    changeText();
 }
 
 function onKeyPress(event) {
@@ -56,3 +77,4 @@ prevButton.onclick = () => {
 }
 
 document.body.addEventListener('keydown', onKeyPress);
+

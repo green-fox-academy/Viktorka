@@ -14,7 +14,7 @@
         <button class='previous'>&lt; </button>
         <figure>
             <img class="main" src=<%= imageList[0].url %>>
-            <figurecapture><% imageList[0].text %></figurecapture>
+            <figurecapture><%= imageList[0].text %></figurecapture>
         </figure>
         <button class='next'>&gt;</button>
     </div>
@@ -23,7 +23,7 @@
         <img class="small" src=<%= imageList[i].url %>>
         <% } %>
     </div>
-    <script src="home.js"> </script>
+    <script src="home.js" type="module" async defer> </script>
 </body>
 
 </html>
