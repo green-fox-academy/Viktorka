@@ -1,27 +1,33 @@
 'use strict'
 const imageList = [
-    { url: "1.jpg", text: "1" },
-    { url: "2.jpg", text: '2' },
-    { url: "3.jpg", text: '3' },
-    { url: "4.jpg", text: '4' },
-    { url: "5.jpg", text: '5' },
-    { url: "6.jpg", text: '6' },
-    { url: "7.jpg", text: "7" },
-    { url: "8.jpg", text: '8' },
-    { url: "9.jpg", text: '9' }
+    { url: "1.jpg", text: "1", moreText: "111" },
+    { url: "2.jpg", text: '2', moreText: "222" },
+    { url: "3.jpg", text: '3', moreText: "333" },
+    { url: "4.jpg", text: '4', moreText: "444" },
+    { url: "5.jpg", text: '5', moreText: "555" },
+    { url: "6.jpg", text: '6', moreText: "666" },
+    { url: "7.jpg", text: "7", moreText: "777" },
+    { url: "8.jpg", text: '8', moreText: "888" },
+    { url: "9.jpg", text: '9', moreText: "999" }
 ]
 let currentImage = document.querySelector(".small").classList.add("currentImage");
 let prevButton = document.querySelector(".previous");
 let nextButton = document.querySelector(".next");
 let mainImg = document.querySelector(".main");
-let mainText = document.querySelector("figurecapture");
+let mainTitle = document.querySelector(".TITLE");
+let mainText = document.querySelector(".theText");
 
 function changeText() {
     for (let i = 0; i < imageList.length; i++) {
-        if (currentImage.src === imageList[i].url) {
-            mainText = imageList[i].text;
+        if (mainImg.src === "http://localhost:3000/" + imageList[i].url) {
+            mainTitle.textContent = imageList[i].text;
+            mainText.textContent= imageList[i].moreText;
         }
     }
+}
+
+function changeTextOnClick() {
+
 }
 
 function toPreviousImage() {
@@ -33,7 +39,8 @@ function toPreviousImage() {
     mainImg.src = prevImage.src;
     document.querySelector(".currentImage").classList.remove("currentImage");
     prevImage.classList.add("currentImage");
-    changeText();
+    changeText()
+
 }
 
 function toNextImage() {
@@ -44,7 +51,7 @@ function toNextImage() {
     mainImg.src = nextImage.src;
     document.querySelector(".currentImage").classList.remove("currentImage");
     nextImage.classList.add("currentImage");
-    changeText();
+    changeText()
 }
 
 function onKeyPress(event) {
@@ -65,6 +72,7 @@ for (let i = 0; i < smallPix.length; i++) {
         mainImg.src = smallPix[i].src; //event.target.src
         document.querySelector(".currentImage").classList.remove("currentImage");
         smallPix[i].classList.add('currentImage');
+
     }
 }
 
