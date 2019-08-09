@@ -10,64 +10,20 @@
 </head>
 
 <body class="body">
-    <button class='previous'><strong>
-            <</strong> </button> <img class="main" src="1.jpg" height="450" width="900">
-                <button class='next'><strong>></strong></button>
-                <div class="allTheImages">
-                    <% for (let i=0; i< imageList.length; i++){ %>
-                    <img class="small" src=<%= imageList[i].url %> height="42" width="42">
-                    <% } %>
-                </div>
-                <script>
-
-                    document.querySelector(".small").classList.add("currentImage");
-                    let prevButton = document.querySelector(".previous");
-                    let nextButton = document.querySelector(".next");
-                    let mainImg = document.querySelector(".main");
-
-
-                    function toPreviousImage() {
-                        let prevImage = document.querySelector(".currentImage").previousElementSibling;
-                        if (prevImage === null) {
-                            let allElement = document.querySelectorAll(".small")
-                            prevImage = allElement[allElement.length - 1];
-                        }
-                        mainImg.src = prevImage.src;
-                        document.querySelector(".currentImage").classList.remove("currentImage");
-                        prevImage.classList.add("currentImage");
-                    }
-
-                    function toNextImage() {
-                        let nextImage = document.querySelector(".currentImage").nextElementSibling;
-                        if (nextImage === null) {
-                            nextImage = document.querySelector(".small");
-                        }
-                        mainImg.src = nextImage.src;
-                        document.querySelector(".currentImage").classList.remove("currentImage");
-                        nextImage.classList.add("currentImage");
-                    }
-
-                    function onKeyPress(event) {
-                        switch (event.keyCode) {
-                            case 37:
-                                toPreviousImage();
-                                break;
-                            case 39:
-                                toNextImage();
-                                break;
-                        }
-                    }
-
-
-                    nextButton.onclick = () => {
-                       toNextImage();
-                    }
-                    prevButton.onclick = () => {
-                        toPreviousImage();
-                    }
-
-                    document.body.addEventListener('keydown', onKeyPress);
-                </script>
+    <div class="maincontent">
+        <button class='previous'>&lt; </button>
+        <figure>
+            <img class="main" src=<%= imageList[0].url %>>
+            <figurecapture><% imageList[0].text %></figurecapture>
+        </figure>
+        <button class='next'>&gt;</button>
+    </div>
+    <div class="allTheImages">
+        <% for (let i=0; i< imageList.length; i++){ %>
+        <img class="small" src=<%= imageList[i].url %>>
+        <% } %>
+    </div>
+    <script src="home.js"> </script>
 </body>
 
 </html>

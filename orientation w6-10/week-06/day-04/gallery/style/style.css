@@ -1,31 +1,66 @@
-.currentImage {
-    border: 10px;
-    border-color: red; 
-}
-
-.small {
-    margin-top: 20px
-}
-
 body {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    align-items: center;
+}
+
+.maincontent {
+    display:flex;
+    height:450px;
+    width:900px;
+    align-content: center;
     justify-content: center;
 }
-.main {
+
+.currentImage {
+    border: 3px solid white;
+}
+
+figure {
+    display:flex;
+    height:450px;
+    width:900px;
+    justify-content: center;
+}
+
+
+
+figurecapture {
+    position:absolute;
+    color: white;
+    background-color: rgba(0,0,0,0.4);
+    align-self: flex-end;
     
 }
+
+.small {
+    margin-top: 20px;
+    margin-right: 20px;
+    align-self: center;
+    width:42px;
+    height: 42px;
+}
+
+
 
 .previous, .next {
     background-color: white;
     border: 0;
-    width: 30px;
+    height: 100%;
+    font-weight: bold;
+   
 }
 
 .previous {
     margin-right: 15px;
+    align-self: flex-start;
 }
 
 .next {
     margin-left: 15px;
+    align-self: flex-end;
+    display: inline;
 }
