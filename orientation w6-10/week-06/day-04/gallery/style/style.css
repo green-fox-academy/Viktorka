@@ -8,9 +8,24 @@
 }
 
 body {
-    display:flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.main {
     
 }
-img {
-    align-self: center;
+
+.previous, .next {
+    background-color: white;
+    border: 0;
+    width: 30px;
+}
+
+.previous {
+    margin-right: 15px;
+}
+
+.next {
+    margin-left: 15px;
 }
