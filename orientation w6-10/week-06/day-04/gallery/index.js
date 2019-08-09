@@ -11,15 +11,15 @@ app.get('/', (req, res) => {
 });
 
 const imageList = [
-    { url: "1.jpg", text: "1", moreText: "111" },
-    { url: "2.jpg", text: '2', moreText: "222" },
-    { url: "3.jpg", text: '3', moreText: "333" },
-    { url: "4.jpg", text: '4', moreText: "444" },
-    { url: "5.jpg", text: '5', moreText: "555" },
-    { url: "6.jpg", text: '6', moreText: "666" },
-    { url: "7.jpg", text: "7", moreText: "777" },
-    { url: "8.jpg", text: '8', moreText: "888" },
-    { url: "9.jpg", text: '9', moreText: "999" }
+    { url: "1.jpg", text: "Kung fu Panda", moreText: "The kung fu Panda who will beat everyone up!" },
+    { url: "2.jpg", text: 'Fun Panda', moreText: "The fun Panda gives no shit" },
+    { url: "3.jpg", text: 'Cute Panda', moreText: "The cute Panda is not cute" },
+    { url: "4.jpg", text: 'Clumsy Panda', moreText: "The clumsy Panda is..well clumsy" },
+    { url: "5.jpg", text: 'Angry Panda', moreText: "The angry Panda needs to hakuna their tatas" },
+    { url: "6.jpg", text: 'Vegan Panda', moreText: "The vegan Panda can be fat too" },
+    { url: "7.jpg", text: "Sith Panda", moreText: "The sith Panda is strong with the force" },
+    { url: "8.jpg", text: 'Black and White', moreText: "Will make it right" },
+    { url: "9.jpg", text: 'Disappointed Panda', moreText: "Let's do stuff" }
 ]
 
 
