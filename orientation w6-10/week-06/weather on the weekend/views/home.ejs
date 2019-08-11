@@ -8,8 +8,9 @@
 </head>
 <body>
     <% for (let i=0; i< dashBoard.length; i++){ %>
-        <%= dashBoard[i].city%> <%= dashBoard[i].weather[0].temp %>
+        <p><%= dashBoard[i].city%> <%= dashBoard[i].weather[0].temp %>°C </p><img src=<%= dashBoard[i].weather[0].icon %> height=40px width=40px >
+        
+        <p><%= dashBoard[i].location %></p>
         <% } %>
-    }
 </body>
 </html>
