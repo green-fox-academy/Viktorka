@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather</title>
+    <style>
+    body {
+        background-color: gray;
+    }
+    
+    
+    div {
+        margin: 10px;
+        background-color: white;
+    }
+    
+    </style>
 </head>
+
 <body>
     <h2>The weather</h2>
-    <% for (let i=0; i< dashBoard.length; i++){ %>
-        <p><%= dashBoard[i].city%> <%= dashBoard[i].weather[0].temp %> °C </p><img src=<%= dashBoard[i].weather[0].icon %> height=40px width=40px >
-        
+    <div>
+        <% for (let i=0; i< dashBoard.length; i++){ %>
+        <p><%= dashBoard[i].city%> <%= dashBoard[i].weather[0].temp %> °C </p><img
+            src=<%= dashBoard[i].weather[0].icon %> height=40px width=40px>
         <p><%= dashBoard[i].location %></p>
         <% } %>
+    </div>
+    <script>
+        let clickOnTheCity = document.querySelectorAll('div');
+
+        // for (let i = 0; i < clickOnTheCity.length; i++) {
+            clickOnTheCity.onclick = () => {
+            console.log(clickOnTheCity)
+            }
+        // }
+
+    </script>
 </body>
+
 </html>
