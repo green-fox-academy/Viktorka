@@ -32,11 +32,12 @@
     <script>
         let clickOnTheCity = document.querySelectorAll('div');
 
-        // for (let i = 0; i < clickOnTheCity.length; i++) {
-            clickOnTheCity.onclick = () => {
-            console.log(clickOnTheCity)
+        for (let i = 0; i < clickOnTheCity.length; i++) {
+            clickOnTheCity[i].onclick = () => {
+            // location.replace("https://wwww.google.com")
+            console.log(clickOnTheCity[i])
             }
-        // }
+        }
 
     </script>
 </body>
