@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-app.use(express.static('static'));
 app.use(express.static('images'));
+app.use('/style',express.static('style'));
+app.use(express.static('script'));
 
 app.set('view engine', 'ejs');
 
