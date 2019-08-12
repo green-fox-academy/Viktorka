@@ -7,16 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%=city%>`s weather</title>
     <style>
+        body {
+            background-color: gray;
+        }
 
-    body {
-        background-color: gray;
-    }
-    
-    div {
-        margin: 5px;
-        background-color: white;
-        width: 10%;
-    }
+        div {
+            margin: 5px;
+            background-color: white;
+            width: 10%;
+        }
     </style>
 </head>
 
@@ -29,6 +28,11 @@
         <p><%= dailyBoard[i].message%> </p></span>
     </div>
     <% } %>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+
+    
 </body>
 
 </html>

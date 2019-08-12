@@ -36,8 +36,10 @@
 
 
         for (let i = 0; i < clickOnTheCity.length; i++) {
-            clickOnTheCity[i].onclick = (event) => {
-                location.href="?cities="+event.target.querySelector("p").classList[0]
+            clickOnTheCity[i].onclick = () => {
+                location.href="?cities="+clickOnTheCity[i].querySelector("p").classList[0]
+            // clickOnTheCity[i].onclick = (event) => {
+            //     location.href="?cities="+event.target.querySelector("p").classList[0]
                 // console.log(event.target.querySelector("p").classList[0]);
             }
         }
