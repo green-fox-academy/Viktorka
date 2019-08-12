@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%=city%>`s weather</title>
+    <style>
+
+    body {
+        background-color: gray;
+    }
+    
+    div {
+        margin: 5px;
+        background-color: white;
+        width: 10%;
+    }
+    </style>
 </head>
+
 <body>
     <h2><%=city%></h2>
     <% for (let i=0; i< dailyBoard.length; i++){ %>
-        <p><img src=<%= dailyBoard[i].icon %> height=40px width=40px></p> <p><%= dailyBoard[i].temp%> °C  </p><p><%= dailyBoard[i].message%> </p></span>
-        <% } %>
+    <div>
+        <p><img src=<%= dailyBoard[i].icon %> height=40px width=40px></p>
+        <p><%= dailyBoard[i].temp%> °C </p>
+        <p><%= dailyBoard[i].message%> </p></span>
+    </div>
+    <% } %>
 </body>
+
 </html>

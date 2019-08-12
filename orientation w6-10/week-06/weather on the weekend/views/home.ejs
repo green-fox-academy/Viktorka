@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather</title>
     <style>
-    body {
-        background-color: gray;
-    }
-    
-    
-    div {
-        margin: 10px;
-        background-color: white;
-    }
-    
+        body {
+            background-color: gray;
+        }
+
+
+        .citiesOneByOne {
+            margin: 10px;
+            background-color: white;
+            width: 25%;
+        }
     </style>
 </head>
 
@@ -24,18 +24,21 @@
     <h2>The weather</h2>
     <div>
         <% for (let i=0; i< dashBoard.length; i++){ %>
-        <p><%= dashBoard[i].city%> <%= dashBoard[i].weather[0].temp %> °C </p><img
-            src=<%= dashBoard[i].weather[0].icon %> height=40px width=40px>
-        <p><%= dashBoard[i].location %></p>
+        <div class="citiesOneByOne" location.href="https://localhost:3000">
+            <p class="<%=dashBoard[i].city%>" </p><%= dashBoard[i].city%> <%= dashBoard[i].weather[0].temp %> °C </p>
+                <img src=<%= dashBoard[i].weather[0].icon %> height=40px width=40px>
+                <p><%= dashBoard[i].location %></p>
+        </div>
         <% } %>
     </div>
     <script>
-        let clickOnTheCity = document.querySelectorAll('div');
+        let clickOnTheCity = document.querySelectorAll('.citiesOneByOne');
+
 
         for (let i = 0; i < clickOnTheCity.length; i++) {
-            clickOnTheCity[i].onclick = () => {
-            // location.replace("https://wwww.google.com")
-            console.log(clickOnTheCity[i])
+            clickOnTheCity[i].onclick = (event) => {
+                location.href="?cities="+event.target.querySelector("p").classList[0]
+                // console.log(event.target.querySelector("p").classList[0]);
             }
         }
 
