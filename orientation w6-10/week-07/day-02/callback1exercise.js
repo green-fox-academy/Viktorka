@@ -29,28 +29,36 @@ console.log(mapWith([1, 2, 3], addOne));
 
 const words = ['map', 'reduce', 'filter'];
 
-const removeSecondLetter = (array, callback) => {
-    let output=[];
-    let splitted=[]
-    let splittedArray = array.split(',')
-    splitted.push(splittedArray.split(''))
-    console.log(splitted)
-}
-
-// console.log(mapWith(words, removeSecondLetter));
-// expected result: ['mp','rdc', 'fle']
-
-let array=[];
-let array2=[];
-
-for (let i=0; i<words.length;i++){
-    
-    array.push(words[i].split(''))
-    for (let j=0;j<words[i].length;j++){
-        if (j%2!==0){
-           
+const removeSecondLetter = (array) => {
+    let splittedChar = [];
+    for (let i = 0; i < array.length; i++) {
+        let array2 = [];
+        for (let j = 0; j < array[i].length; j++) {
+            if (j % 2 === 0) {
+                array2.push(array[i][j])
+            }
         }
+        splittedChar.push(array2.join(''))
+        
     }
 }
 
-console.log(array[1].join(''))
+console.log(mapWith(words, removeSecondLetter));
+
+
+// expected result: ['mp','rdc', 'fle']
+
+
+// let splittedChar = [];
+// for (let i = 0; i < words.length; i++) {
+//     let array2 = [];
+//     for (let j = 0; j < words[i].length; j++) {
+//         if (j % 2 === 0) {
+//             array2.push(words[i][j])
+//         }
+//     }
+//     splittedChar.push(array2.join(''))
+    
+// }
+
+// console.log(splittedChar)
