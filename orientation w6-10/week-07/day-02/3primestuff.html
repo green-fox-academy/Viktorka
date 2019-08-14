@@ -49,16 +49,47 @@
             return num > 1;
         }
 
+
         for (let i = 2; i < 101; i++) {
             let newDiv = document.createElement("div");
             newDiv.textContent = i;
-            if (isPrime(i)) {
-                newDiv.classList.add("prime")
-            } else {
-                newDiv.classList.add("not-prime")
-            }
+            // if (isPrime(i)) {
+            //     newDiv.classList.add("prime")
+            // } else {
+            //     newDiv.classList.add("not-prime")
+            // }
             sectionDivs.appendChild(newDiv);
         }
+        let allSectionDivs = document.querySelectorAll("div");
+        let counter = 0;
+
+        function divIsPrime(div) {
+            if (isPrime(+div.textContent)) {
+                div.classList.add("prime");
+            } else {
+                div.classList.add("not-prime")
+            }
+        }
+
+
+        let intervalId = setInterval(() => {
+            if (counter++ > 97){
+                clearInterval(intervalId);
+            }
+            divIsPrime(allSectionDivs[counter])
+        }, 100);
+
+        // for (let k = 1; k < allSectionDivs.length; k++) {
+        //     if (isPrime(k + 1)) {
+        //         allSectionDivs[k].classList.add("prime");
+        //     } else {
+        //         allSectionDivs[k].classList.add("not-prime")
+        //     }
+        // }
+
+
+
+
 
     </script>
 </body>
