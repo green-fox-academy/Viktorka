@@ -32,13 +32,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/titles', (req, res) => {
-    connection.query('select book_name from book_mast;', (err, rows) => {
+    connection.query('select book_name,book_price from book_mast;', (err, rows) => {
         res.json(rows);
     });
 })
 
 app.get('/info', (req, res) => {
-    connection.query('select book_name from book_mast;', (err, rows) => {
+    connection.query('select author.aut_name,book_mast.book_name,category.cate_descrip from author,book_mast,category where author.aut_id=book_mast.aut_id AND category.cate_id=book_mast.cate_id;', (err, rows) => {
+        console.log(err);
         res.json(rows);
     });
 })
