@@ -5,11 +5,11 @@ app.use(express.json());
 app.use(express.static('assets'));
 
 
+let evenArray = [];
+let oddArray = [];
 function yodaSpeaking(content) {
     let newContent = content.split(" ");
     let wordsObj = {}
-    let evenArray = [];
-    let oddArray = [];
     for (let i = 0; i < newContent.length; i++) {
         if (i % 2 === 0 || i === 0) {
             evenArray.push(newContent[i])
@@ -21,7 +21,7 @@ function yodaSpeaking(content) {
     wordsObj.oddArray = oddArray;
     return wordsObj;
 }
-function stringifyMyArray(obj) { 
+function countArrays(obj) { 
     let checker = 0
     if (obj.evenArray.length > obj.oddArray.length) {
         checker = obj.oddArray.length;
@@ -32,12 +32,23 @@ function stringifyMyArray(obj) {
     }
     return checker;
 }
+function mixerOfTheWords(number){
+    let mixedText=[];
+    for (let i=0; i< number;i++){
+        mixedText.push(oddArray[i]);
+        mixedText.push(evenArray[i]);
+    } return mixedText
+}
 
+function trystuff(text){
+    console.log(text)
+}
 
 
 app.post('/sith', (res, req) => {
     req.json({
-        "text": "This is my example sentence. Just for fun."
+        // "text": mixerOfTheWords(countArrays(yodaSpeaking(req.body.text)))
+        "text" : trystuff(req.body.text)
     })
 })
 
