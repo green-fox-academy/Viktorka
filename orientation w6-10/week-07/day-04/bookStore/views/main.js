@@ -32,6 +32,9 @@ function bookInfo(data) {
     let tableHeader5 = document.createElement('th');
     let tableD = document.createElement('td');
     let tableD2 = document.createElement('td');
+    let tableD3 = document.createElement('td');
+    let tableD4 = document.createElement('td');
+    let tableD5 = document.createElement('td');
     document.body.appendChild(table);
     tableRow.appendChild(tableHeader1);
     tableRow.appendChild(tableHeader2);
@@ -42,24 +45,50 @@ function bookInfo(data) {
     table.appendChild(tableRow2);
     tableRow2.appendChild(tableD);
     tableRow2.appendChild(tableD2);
+    tableRow2.appendChild(tableD3);
+    tableRow2.appendChild(tableD4);
+    tableRow2.appendChild(tableD5);
 
     tableHeader1.innerText = 'Titles';
     for (let i = 0; i < data.length; i++) {
         let pelement = document.createElement('p');
         pelement.textContent = data[i].book_name
-        tableD.appendChild(tdelement)
+        tableD.appendChild(pelement)
     }
     tableHeader2.innerText = 'Author';
     for (let i = 0; i < data.length; i++) {
         let pelement2 = document.createElement('p');
         pelement2.innerText = data[i].aut_name;
-        tableD2.appendChild(tdelement2);
+        tableD2.appendChild(pelement2);
     }
     tableHeader3.innerText = 'Category';
+    data.forEach(element => {
+        let pelement3 = document.createElement('p');
+        pelement3.innerText = element.cate_descrip;
+        tableD3.appendChild(pelement3);
+    });
     tableHeader4.innerText = 'Publisher';
+    // data.forEach(element => {
+    //     let pelement4 = document.createComment('p');
+    //     pelement4.innerText = element.pub_name;
+    //     tableD4.appendChild(pelement4);
+    // })
+    for (let i = 0; i < data.length; i++) {
+        let pelement4 = document.createElement('p');
+        pelement4.innerText = data[i].pub_name;
+        tableD4.appendChild(pelement4);
+    }
     tableHeader5.innerText = 'Price';
-
-
+    // data.forEach(element => {
+    //     let pelement5 = document.createComment('p');
+    //     pelement5.innerText = element.book_price;
+    //     tableD5.appendChild(pelement5);
+    // })
+    for (let i = 0; i < data.length; i++) {
+        let pelement5 = document.createElement('p');
+        pelement5.innerText = '$ '+data[i].book_price;
+        tableD5.appendChild(pelement5);
+    }
 
 }
 
