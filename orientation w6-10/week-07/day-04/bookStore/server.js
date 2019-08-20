@@ -44,4 +44,15 @@ app.get('/info', (req, res) => {
     });
 })
 
+app.get('/books', (req, res) => {
+    // if (req.query.category === 'Science') {
+    connection.query(`select book_mast.book_name from book_mast,category WHERE category.cate_descrip=\'${req.query.category}\' AND book_mast.cate_id=category.cate_id;`, (err, rows) => {
+        console.log(err);
+        res.json(rows);
+    })
+    // } else {
+    //     res.json('nem asd')
+    // }
+})
+
 app.listen(PORT);
