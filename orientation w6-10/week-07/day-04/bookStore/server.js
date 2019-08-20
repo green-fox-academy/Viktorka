@@ -45,14 +45,42 @@ app.get('/info', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-    // if (req.query.category === 'Science') {
-    connection.query(`select book_mast.book_name from book_mast,category WHERE category.cate_descrip=\'${req.query.category}\' AND book_mast.cate_id=category.cate_id;`, (err, rows) => {
-        console.log(err);
-        res.json(rows);
-    })
-    // } else {
-    //     res.json('nem asd')
-    // }
+    if (req.query.category) {
+        connection.query(`select book_mast.book_name from book_mast,category WHERE category.cate_descrip=\'${req.query.category}\' AND book_mast.cate_id=category.cate_id;`, (err, rows) => {
+            console.log(err);
+            let titles = [];
+            rows.forEach(element => {
+                titles.push(element.book_name)
+            });
+            res.send(titles)
+            //  res.json(theResponse);
+        })
+    } else if (req.query.publisher) {
+        connection.query(`select book_mast.book_name from book_mast,publisher WHERE publisher.pub_name=\'${req.query.publisher}\' AND book_mast.pub_id=publisher.pub_id;`, (err, rows) => {
+            let titles = [];
+            rows.forEach(element => {
+                titles.push(element.book_name)
+            });
+            res.send(titles)
+        })
+    } else if (req.query.plt) {
+        connection.query(`select book_mast.book_name, book_mast.book_price from book_mast WHERE book_mast.book_price<\'${req.query.plt}\';`, (err, rows) => {
+            let titles = [];
+            rows.forEach(element => {
+                titles.push(element.book_name)
+            });
+            res.send(titles)
+        })
+    } else if (req.query.pgt) {
+
+        connection.query(`select book_mast.book_name, book_mast.book_price from book_mast WHERE book_mast.book_price>\'${req.query.pgt}\';`, (err, rows) => {
+            let titles = [];
+            rows.forEach(element => {
+                titles.push(element.book_name)
+            });
+            res.send(titles)
+        })
+    }
 })
 
 app.listen(PORT);
