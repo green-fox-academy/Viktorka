@@ -1,9 +1,9 @@
 'use strict';
 
 const express = require('express');
-const mysql = require('mysql');
 const PORT = 8080;
 const path = require('path');
+const mysql = require('mysql');
 
 
 const connection = mysql.createConnection({
@@ -20,11 +20,11 @@ app.use(express.static('views'));
 
 connection.connect(err => {
     if (err) {
-        console.log("error connecting");
+        console.log('error connecting');
         console.log(err.message);
         return;
     }
-    console.log("database cconnection is established");
+    console.log('database cconnection is established');
 });
 
 app.get('/', (req, res) => {
@@ -32,13 +32,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/titles', (req, res) => {
-    connection.query('select book_name,book_price from book_mast;', (err, rows) => {
+    connection.query('select book_name from book_mast;', (err, rows) => {
         res.json(rows);
     });
 })
 
 app.get('/info', (req, res) => {
-    connection.query('select author.aut_name,book_mast.book_name,category.cate_descrip from author,book_mast,category where author.aut_id=book_mast.aut_id AND category.cate_id=book_mast.cate_id;', (err, rows) => {
+    connection.query('select author.aut_name,book_mast.book_name,category.cate_descrip,publisher.pub_name, book_mast.book_price from author,book_mast,category,publisher where author.aut_id=book_mast.aut_id AND category.cate_id=book_mast.cate_id AND publisher.pub_id=book_mast.pub_id ;', (err, rows) => {
         console.log(err);
         res.json(rows);
     });
