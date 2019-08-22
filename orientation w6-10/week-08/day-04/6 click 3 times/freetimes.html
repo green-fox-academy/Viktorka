@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <button>BUTTONY</button>
-    <scrpt>
-        
+    <script>
+        let button = document.querySelector('button');
+        let counter = 0;
+        let countClicks = (e) => {
+            counter++;
+            console.log(`e detail ${e.detail}`);
+            if (counter === 3) {
+                addText()
+            }
+        }
+
+        let addText = () => {
+            let aText = document.createElement('p');
+            aText.textContent = '3 clicks later after 5 sec..';
+            document.body.appendChild(aText);
+        }
 
 
-    </scrpt>
+        let addTheEventlistener = () => {
+            button.addEventListener('click', countClicks);
+            console.log()
+        }
+
+        setTimeout(addTheEventlistener, 1000)
+
+
+    </script>
 </body>
+
 </html>
