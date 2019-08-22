@@ -23,7 +23,10 @@ function addOneCandy() {
     actualCandyNum();
     console.log("")
     // console.log("candies: "+candyCounter)
+}
 
+function candyPerSecAdd(){
+    candyCounter+=soe
 }
 
 function buyPops() {
@@ -40,6 +43,11 @@ function buyPops() {
     }
 }
 
+function tenTimes(){
+    
+    
+}
 
 candies.addEventListener('click', addOneCandy);
 buyLollipops.addEventListener('click', buyPops);
+candyRain.addEventListener('click', tenTimes);
