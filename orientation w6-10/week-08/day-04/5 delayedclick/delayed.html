@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>Delay</button>
+    <script>
+        let button = document.querySelector('button');
+
+
+        let delayFunction = () => {
+            setTimeout(
+            function (){let aText = document.createElement('p');
+            aText.textContent = "now is 2 secs later";
+            document.body.appendChild(aText)}, 2000
+        )
+    }
+
+        button.addEventListener('click', delayFunction);
+
+
+    </script>
+</body>
+
+</html>
