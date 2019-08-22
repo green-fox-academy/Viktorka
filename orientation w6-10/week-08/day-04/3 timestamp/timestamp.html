@@ -13,20 +13,27 @@
     <script>
 
         const button = document.querySelector('button');
+        let body =document.querySelector('body')
         // let timestamp = () => {
         //     console.log(Date.now())
         //     button.removeEventListener('click', timestamp)
         // }
 
         // button.addEventListener('click', timestamp);
-        let body =document.querySelector('body')
+
         
-        let timestamp2 = () => {
-            console.log(Date.now());
-            body.removeChild(body.childNodes[0]);
+        // let timestamp2 = () => {
+        //     console.log(Date.now());
+        //     body.removeChild(body.childNodes[1]);
+        // }
+        // button.addEventListener('click', timestamp2);
+
+        let timestamp = () => {
+            console.log(Date.now())
+            button.disabled=true;
         }
 
-        button.addEventListener('click', timestamp2)
+        button.addEventListener('click', timestamp);
 
 
 
