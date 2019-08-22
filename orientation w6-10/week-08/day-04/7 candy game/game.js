@@ -5,7 +5,9 @@ let buyLollipops = document.querySelector('.buy-lollypops');
 let candyRain = document.querySelector('.candy-machine');
 let actualCandies = document.querySelector('.candies');
 let pops = document.querySelector('.lollypops');
+let speed = document.querySelector('.speed');
 
+let speedCounter=0;
 let candyCounter = 0;
 let popCounter = 0;
 function actualCandyNum(){
@@ -17,8 +19,11 @@ function addPop(){
 }
 
 function addOneCandy() {
-    candyCounter++;
+    candyCounter+=1;
     actualCandyNum();
+    console.log("")
+    // console.log("candies: "+candyCounter)
+
 }
 
 function buyPops() {
@@ -26,12 +31,15 @@ function buyPops() {
         candyCounter -= 5;
         actualCandyNum();
         addPop();
-        console.log(popCounter)
+        if (popCounter%2===0 && popCounter!==0){
+            speedCounter++;
+            setInterval(addOneCandy,1000);
+            speed.textContent=speedCounter;
+        }
+        
     }
 }
-if (popCounter>=4){
-    setTimeout(addOneCandy,1000)
-}
+
 
 candies.addEventListener('click', addOneCandy);
 buyLollipops.addEventListener('click', buyPops);
