@@ -13,12 +13,22 @@
     <script>
 
         const button = document.querySelector('button');
-        let timestamp = () => {
-            console.log(Date.now())
-            button.removeEventListener('click', timestamp)
+        // let timestamp = () => {
+        //     console.log(Date.now())
+        //     button.removeEventListener('click', timestamp)
+        // }
+
+        // button.addEventListener('click', timestamp);
+        let body =document.querySelector('body')
+        
+        let timestamp2 = () => {
+            console.log(Date.now());
+            body.removeChild(body.childNodes[0]);
         }
 
-        button.addEventListener('click', timestamp);
+        button.addEventListener('click', timestamp2)
+
+
 
     //   Create an event listener which logs the current timestamp to the console once the button is clicked.
     //   When the button is clicked for the second or any other times no event listener should be called.
