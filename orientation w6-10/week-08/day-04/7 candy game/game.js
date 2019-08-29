@@ -6,46 +6,64 @@ let candyRain = document.querySelector('.candy-machine');
 let actualCandies = document.querySelector('.candies');
 let pops = document.querySelector('.lollypops');
 let speed = document.querySelector('.speed');
+let timer = 5000
 
-let speedCounter=0;
+let speedCounter = 0;
 let candyCounter = 0;
 let popCounter = 0;
-function actualCandyNum(){
+function actualCandyNum() {
     actualCandies.textContent = candyCounter;
 }
-function addPop(){
-    pops.textContent+="🍭";
+function addPop() {
+    pops.textContent += "🍭";
     popCounter++;
 }
 
 function addOneCandy() {
-    candyCounter+=1;
+    candyCounter += 1;
     actualCandyNum();
-    console.log("")
-    // console.log("candies: "+candyCounter)
 }
 
-function candyPerSecAdd(){
-    candyCounter+=soe
-}
+
 
 function buyPops() {
     if (candyCounter >= 5) {
         candyCounter -= 5;
         actualCandyNum();
         addPop();
-        if (popCounter%2===0 && popCounter!==0){
+        if (popCounter % 2 === 0 && popCounter !== 0) {
             speedCounter++;
-            setInterval(addOneCandy,1000);
-            speed.textContent=speedCounter;
+            setInterval(addOneCandy, 1000);
+            speed.textContent = speedCounter;
         }
-        
+
     }
 }
 
-function tenTimes(){
-    
-    
+function candyRainRestart() {
+    candyRain.disabled = false;
+    candyRain.textContent = 'Make candy rain';
+ 
+}
+
+function coolDownLol(){
+        candyRain.textContent = `will be ready shortly...`;
+   
+}
+
+function tenTimes() {
+    if (speedCounter !== 0) {
+        speed.textContent = speedCounter * 10;
+        speedCounter = speedCounter * 10;
+        for (let i = 0; i <= speedCounter; i++) {
+            setInterval(addOneCandy, 1000);
+            speed.textContent = speedCounter;
+            candyRain.disabled=true;
+            setInterval(coolDownLol,1000);
+            setTimeout(candyRainRestart, timer);
+           
+        }
+    }
 }
 
 candies.addEventListener('click', addOneCandy);
