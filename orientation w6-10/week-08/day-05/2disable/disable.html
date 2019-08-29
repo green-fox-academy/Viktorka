@@ -18,15 +18,17 @@
         <label for="Fish">Viktor the goldfish</label>
         <input type="radio" name="animal" id="Fish" value="Viktor the goldfish">
     </div>
-    <p>Wanna get some cat facts?</p>
-    <label for="yes">Yes</label>
-    <input type="radio" name="catfacts" id="yes" value="yes">
-    <label for="no">No</label>
-    <input type="radio" name="catfacts" id="no" value="no">
-    <br>
-    <br>
-    <input type="button" id="lovecats" value="I love cats" disabled>
-    <input type="button" id="signup" value="Sign up" disabled>
+    <div id="choose">
+        <p>Wanna get some cat facts?</p>
+        <label for="yes">Yes</label>
+        <input type="radio" name="catfacts" id="yes" value="yes">
+        <label for="no">No</label>
+        <input type="radio" name="catfacts" id="no" value="no">
+    </div>
+    <div id="buttons">
+        <input type="button" id="lovecats" value="I love cats" disabled>
+        <input type="button" id="signup" value="Sign up" disabled>
+    </div>
 
     <script>
         let dog = document.getElementById('Dog');
@@ -36,24 +38,55 @@
         let no = document.getElementById('no');
         let loveCats = document.getElementById('lovecats');
         let signup = document.getElementById('signup');
-        let pet = document.getElementById('pet')
+        let pet = document.getElementById('pet');
+        let choose = document.getElementById('choose');
+        let btn = document.getElementById('buttons')
 
-        //     If you choose Dog or Cat, it should enable the sign up button
-        // If you choose Yes for cat facts, it should enable the I love cats button
-        // Clicking on a button should alert:
-        
 
-        function checkIfClicked() {
-            if (dog.checked||cat.checked) {
+        function checkPets() {
+            if (dog.checked || cat.checked) {
                 signup.disabled = false;
             } else {
                 signup.disabled = true;
             }
+
+        }
+        function checkChoose() {
+            if (yes.checked) {
+                loveCats.disabled = false;
+            } else {
+                loveCats.disabled = true;
+            }
         }
 
-        pet.addEventListener('click', checkIfClicked);
-        
 
+        function clickedCats() {
+            alert('Catfacts in your face C#!t!')
+        }
+
+        function fishAndCat() {
+            let aText = document.createElement('p')
+            aText.textContent = "sucks to be you, still get them cat pix"
+            document.body.appendChild(aText);
+        }
+
+
+        function theFishCalledViktor() {
+            if (fish.checked && no.checked) {
+                signup.disabled = false;
+                signup.addEventListener('click', fishAndCat);
+            } else if (dog.checked || cat.checked) {
+                signup.disabled = false;
+
+            } else {
+                signup.disabled = true;
+            }
+
+        }
+        pet.addEventListener('click', checkPets);
+        choose.addEventListener('click', checkChoose);
+        loveCats.addEventListener('click', clickedCats);
+        document.body.addEventListener('click', theFishCalledViktor);
 
     </script>
 </body>

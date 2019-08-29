@@ -41,14 +41,14 @@ function buyPops() {
 }
 
 function candyRainRestart() {
+    
     candyRain.disabled = false;
-    candyRain.textContent = 'Make candy rain';
- 
+    // candyRain.textContent = 'Make candy rain';
 }
 
-function coolDownLol(){
-        candyRain.textContent = `will be ready shortly...`;
-   
+function coolDownLol() {
+    // candyRain.textContent = `will be ready shortly...`;
+    setTimeout(candyRainRestart,timer-900)
 }
 
 function tenTimes() {
@@ -58,10 +58,9 @@ function tenTimes() {
         for (let i = 0; i <= speedCounter; i++) {
             setInterval(addOneCandy, 1000);
             speed.textContent = speedCounter;
-            candyRain.disabled=true;
-            setInterval(coolDownLol,1000);
+            candyRain.disabled = true;
             setTimeout(candyRainRestart, timer);
-           
+            // setInterval(coolDownLol, 100);
         }
     }
 }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <style>
+        body {
+            height: 100vh;
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            width:25%;
+        }
+
+        .container {
+            /* width: 25%; */
+            height: 42.5vh;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            /* flex-shrink:1; */
+        }
+
+        #button {
+            background-color: black;
+            color: white;
+            width: 15vh;
+            border-radius: 300px;
+            height: 5vh;
+            /* margin-top: 8vh; */
+            margin-left: 5vh;
+        }
+
+        a {
+            align-self: flex-end;
+            margin-right: 8vh;
+            margin-top: 3vh;
+        }
+
+        input:focus {
+            border-style: solid;
+            border-color: lime;
+        }
+
+        input {
+            margin-left: 8vh;
+            margin-right: 8vh;
+            padding: 12px 20px;
+        }
+
+        label {
+            margin-left: 8vh;
+        }
+
+        #username {
+            margin-bottom: 2vh;
+
+        }
+
+        h2 {
+            align-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/send" method="POST">
+        <div class="container">
+            <h2>ACCOUNT LOGIN</h2>
+            <label for="username">USERNAME</label>
+            <input type="text" id="username" name="username" autofocus>
+            <label for="password">PASSWORD</label>
+            <input type="password" id="password" name="password">
+            <a
+                href="http://www.picslyrics.net/images/188/126995/thumb.jpg?1462548944http://www.picslyrics.net/images/188/126995/thumb.jpg?1462548944">Forgot
+                password?</a>
+            <input type="button" id="button" value="LOGIN">
+        </div>
+    </form>
+</body>
+
+</html>
