@@ -14,7 +14,7 @@ form.addEventListener('submit', e => {
                 location.href='http://localhost:3050';
             } else {
                 alert('Try again');
-                location.href='http://google.com';
+                // location.href='http://google.com';
                 console.log('Crap');
             }
         }
