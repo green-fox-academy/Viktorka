@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 app.post('/send', (req, res) => {
     console.log(`Username ${req.body.username}`);
     console.log(`Password ${req.body.password}`);
+    // kellene egy database ahol van username es password es osszekotni a kettot
     if (req.body.username === 'asd' && req.body.password === 'asd') {
         res.send('correct');
     } else {
