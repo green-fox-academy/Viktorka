@@ -11,8 +11,10 @@ form.addEventListener('submit', e => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status >= 200 && xhr.status < 300) {
-                location.href='http://localhost:3050'
+                location.href='http://localhost:3050';
             } else {
+                alert('Try again');
+                location.href='http://google.com';
                 console.log('Crap');
             }
         }
