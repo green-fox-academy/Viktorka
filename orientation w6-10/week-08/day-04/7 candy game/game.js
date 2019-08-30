@@ -13,7 +13,13 @@ let candyCounter = 0;
 let popCounter = 0;
 buyLollipops.disabled = true;
 let popPrice = 30;
+let lolliesForCandiPerSec=10;
+candyRain.textContent= `Make candy rain (${countDown} sec)`
 buyLollipops.textContent = `Buy Lollipops (${popPrice}🍬)`;
+let div = document.querySelector('.container');
+let extraInfo = document.createElement('p');
+extraInfo.textContent=`Buy ${lolliesForCandiPerSec} lollypops to increase your Candy/Second!`
+div.appendChild(extraInfo);
 
 
 function actualCandyNum() {
@@ -43,7 +49,7 @@ function buyPops() {
         actualCandyNum();
         addPop();
         buyLollipops.disabled = true;
-        if (popCounter % 2 === 0 && popCounter !== 0) {
+        if (popCounter % lolliesForCandiPerSec === 0 && popCounter !== 0) {
             speedCounter++;
             setInterval(addOneCandy, 1000);
             speed.textContent = speedCounter;
@@ -54,6 +60,7 @@ function buyPops() {
 function theCandyShop() {
     if (candyCounter >= 1000) {
         document.body.setAttribute('background', 'https://cdn.unifiedcommerce.com/content/product/large/079346117475.jpeg');
+        div.setAttribute('bgcolor', 'white');
     }
 }
 
@@ -90,4 +97,4 @@ function tenTimes() {
 candies.addEventListener('click', addOneCandy);
 buyLollipops.addEventListener('click', buyPops);
 candyRain.addEventListener('click', tenTimes);
-setInterval(theCandyShop,1000)
+setInterval(theCandyShop,100)
