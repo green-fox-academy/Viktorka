@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        text-align:center;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 16.35vh);
+        
+    }
+    .yellow {
+        background-color: yellow;
+        border: solid 1px black;
+        
+    }
+    .green{
+        background-color: lime;
+    }
+    .cards{
+        background-color: violet;
+    }
+    .start{
+        grid-column: 1/1;
+        grid-row:1/1;
+        text-align: center;
+        writing-mode:horizontal-tb;
+    }
+    .pub{
+        grid-column: 7/7;
+        grid-row:6/7;
+    }
+    .green{
+        grid-column: 2/7;
+        grid-row:2/6;
+    }
+    .cards {
+        grid-column: 4/7;
+        grid-row:3/5;
+        /* margin-right: 15px;
+        margin-left:16.67vh; */
+        margin: 15px 20px 15px 10vh
+    }
+    p{
+        transform: rotate(-45deg)
+    }
+
+</style>
+
+<body>
+<div class="yellow start"><p>START</p></div>
+<div class="yellow pub">PUB</div>
+<div class="yellow 3"></div>
+<div class="yellow 4"></div>
+<div class="yellow 5"></div>
+<div class="yellow 6"></div>
+<div class="yellow 7"></div>
+<div class="yellow 8"></div>
+<div class="yellow 9"></div>
+<div class="yellow 10"></div>
+<div class="yellow 11"></div>
+<div class="yellow 12"></div>
+<div class="yellow 13"></div>
+<div class="yellow 14"></div>
+<div class="yellow 15"></div>
+<div class="yellow 16"></div>
+<div class="yellow 17"></div>
+<div class="yellow 18"></div>
+<div class="yellow 19"></div>
+<div class="yellow 20"></div>
+<div class="yellow 21"></div>
+<div class="yellow 22"></div>
+<div class="green"></div>
+<div class="cards">CARDS</div>
+</body>
+
+</html>
