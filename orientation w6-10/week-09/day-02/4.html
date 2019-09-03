@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: grid;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: repeat(48, 1fr);
+        grid-template-rows: repeat(3, 20px);
+        background-color: blueviolet;
+    }
+
+    .container {
+        display: grid;
+        margin: 10px;
+        /* grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat (10, 10px); */
+        grid-template-columns: repeat(30, 1fr);
+        grid-template-rows: repeat(11, 50px);
+        grid-gap: 10px;
+    }
+
+    .green {
+        background-color: limegreen;
+    }
+
+    .g1 {
+        grid-row: 1/6;
+        grid-column: 3/15;
+    }
+
+    .g2 {
+        grid-row: 1/6;
+        grid-column: 15/29;
+    }
+
+    .g3 {
+        grid-row: 6/11;
+        grid-column: 3/15;
+    }
+
+    .g4 {
+        grid-row: 6/11;
+        grid-column: 15/22;
+    }
+
+    .g5 {
+        grid-row: 6/11;
+        grid-column: 22/29;
+    }
+
+    .i1 {
+        background-color: tomato;
+        grid-row: 7/10;
+        grid-column: 16/21;
+    }
+
+    .i2 {
+        background-color: tomato;
+        grid-row: 7/10;
+        grid-column: 23/28;
+    }
+
+    footer {
+        background-color: gray;
+        grid-row: 11;
+        grid-column: 2/30;
+    }
+
+    a {
+        background-color: lightskyblue;
+    }
+
+    .a {
+        grid-row: 2/3;
+        grid-column: 2/5;
+    }
+
+    .b {
+        grid-row: 2/3;
+        grid-column: 6/10;
+    }
+
+    .c {
+        grid-row: 2/3;
+        grid-column: 11/14;
+    }
+
+    .d {
+        grid-row: 2/3;
+        grid-column: 15/19;
+    }
+</style>
+
+<body>
+    <header>
+        <a class="a"></a>
+        <a class="b"></a>
+        <a class="c"></a>
+        <a class="d"></a>
+    </header>
+    <div class="container">
+        <div class="green g1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perferendis aut
+            delectus sint voluptates fugit quae ipsam cum laboriosam repudiandae corporis voluptatibus officiis,
+            corrupti voluptate fuga enim quidem? Fugiat, natus.</div>
+        <div class="green g2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. In tempore aperiam obcaecati
+            reprehenderit nisi ratione doloremque. Alias, dolor quidem? Et velit repellat enim facere, quod illum quos
+            dolorum deserunt esse?</div>
+        <div class="green g3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi animi repudiandae sunt
+            molestiae omnis commodi quis temporibus consequatur, optio debitis voluptatum sapiente esse, facilis
+            necessitatibus, aliquid amet vero explicabo fugit.</div>
+        <div class="green g4"></div>
+        <div class="green g5"></div>
+        <div class="img i1"></div>
+        <div class="img i2"></div>
+        <footer></footer>
+</body>
+
+</html>
