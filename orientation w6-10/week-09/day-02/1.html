@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        background-color: purple;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 200px;
+    }
+    .yellow {
+        background-color: orange;
+    }
+
+    .left {
+        margin: 10px 0 10px 10px;
+    }
+
+    .right {
+        margin: 10px 10px 10px 0;
+    }
+
+    .main {
+        background-color: limegreen;
+        text-align: center;
+        margin: 10px;
+    }
+
+    body {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="left yellow">left</div>
+        <div class="main">main</div>
+        <div class="right yellow">right</div>
+    </div>
+</body>
+
+</html>
