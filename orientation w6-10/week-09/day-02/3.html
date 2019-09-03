@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display:grid;
+    }
+header{
+    display:grid;
+    grid-template-columns: repeat(48, 1fr);
+    grid-template-rows: repeat(3, 20px);
+    background-color: blueviolet;
+}
+.container{
+    display:grid;
+    margin:10px;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat (10, 10px); */
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(10, 50px);
+    grid-gap:10px;
+}
+.green{
+    background-color: limegreen;
+    grid-row: 1/10;
+    grid-column: 14/30;
+}
+.yellow{
+    background-color: yellow;
+    grid-row: 1/10;
+    grid-column: 2/14
+}
+footer{
+    background-color: gray;
+    grid-row: 10;
+    grid-column: 2/30;
+}
+a {
+    background-color:lightskyblue;
+}
+.a{
+    grid-row: 2/3;
+    grid-column: 2/5;
+}
+.b{
+    grid-row: 2/3;
+    grid-column: 6/10;
+}
+.c {
+    grid-row: 2/3;
+    grid-column: 11/14;
+}
+.d {
+    grid-row: 2/3;
+    grid-column: 15/19;
+}
+
+</style>
+<body>
+    <header>
+        <a class="a"></a>
+        <a class="b"></a>
+        <a class="c"></a>
+        <a class="d"></a>
+    </header>
+    <div class="container">
+        <div class="green"></div>
+        <div class="yellow"></div>
+        <footer></footer>
+    </div>
+</body>
+</html>
