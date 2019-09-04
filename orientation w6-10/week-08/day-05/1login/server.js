@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.get('/register', (req, res) => {
     res.sendFile('/views/register.html', { root: __dirname });
-    
+
 })
 
 app.post('/register', (req, res) => {
@@ -29,17 +29,25 @@ app.post('/register', (req, res) => {
     WHERE username=?`
     connection.query(queryOfMine, [req.body.username], (err, reply) => {
         if (reply.length > 0)
-        res.send(`${req.body.username} is already in use`)
-// put 2 query into 1?
+            res.send(`${req.body.username} is already in use`)
+        connection.query(`INSERT INTO username(username,password) VALUES(?,?)`,
+            [req.body.username, req.body.password], function (err, result) {
+                if (err) {
+                    res.send(err.message)
+                    return
+                } else
+                    res.send(result)
+            })
+        // put 2 query into 1?
     })
-    connection.query(`INSERT INTO username(username,password) VALUES(?,?)`,
-        [req.body.username, req.body.password], function (err, result) {
-            if (err) {
-                res.send(err.message)
-                return
-            } else
-                res.send(result)
-        })
+    // connection.query(`INSERT INTO username(username,password) VALUES(?,?)`,
+    //     [req.body.username, req.body.password], function (err, result) {
+    //         if (err) {
+    //             res.send(err.message)
+    //             return
+    //         } else
+    //             res.send(result)
+    //     })
 })
 
 app.post('/send', (req, res) => {
