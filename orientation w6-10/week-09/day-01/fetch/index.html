@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button>Jokes</button>
+
+    </div>
+    <script>
+        const URL = "http://api.icndb.com/jokes/random";
+        let btn = document.querySelector('button');
+
+        function createJoke() {
+
+        }
+
+
+        function morePelement() {
+            let pElement = document.createElement('p');
+            let body = document.querySelector('body');
+            body.appendChild(pElement);
+            return pElement;
+        }
+
+        function fetchThemJokes() {
+            fetch(URL)
+                .then(response => response.json())
+                .then(myJson => morePelement().textContent = myJson.value.joke);
+        }
+
+        btn.addEventListener('click', fetchThemJokes);
+
+    </script>
+
+</body>
+
+</html>
