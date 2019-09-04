@@ -21,33 +21,32 @@ app.get('/', (req, res) => {
 
 app.get('/register', (req, res) => {
     res.sendFile('/views/register.html', { root: __dirname });
-
 })
 
 app.post('/register', (req, res) => {
     let queryOfMine = ` SELECT username from username
     WHERE username=?`
     connection.query(queryOfMine, [req.body.username], (err, reply) => {
-        if (reply.length > 0)
+        if (reply.length > 0) {
+            res.status(400)
             res.send(`${req.body.username} is already in use`)
-        connection.query(`INSERT INTO username(username,password) VALUES(?,?)`,
-            [req.body.username, req.body.password], function (err, result) {
-                if (err) {
-                    res.send(err.message)
-                    return
-                } else
-                    res.send(result)
-            })
-        // put 2 query into 1?
+        } else {
+            connection.query(`INSERT INTO username(username,password) VALUES(?,?)`,
+                [req.body.username, req.body.password], function (err, result) {
+                    if (err) {
+                        // res.status(400)
+                        res.send(err.message)
+                        return
+                    } else
+                        res.send(result)
+                })
+        }
     })
-    // connection.query(`INSERT INTO username(username,password) VALUES(?,?)`,
-    //     [req.body.username, req.body.password], function (err, result) {
-    //         if (err) {
-    //             res.send(err.message)
-    //             return
-    //         } else
-    //             res.send(result)
-    //     })
+})
+
+app.get('/forgot', (req, res) => {
+    connection.query(`SELECT username FROM username`, (err, username) =>
+    res.json(username))
 })
 
 app.post('/send', (req, res) => {
@@ -62,12 +61,6 @@ app.post('/send', (req, res) => {
             res.sendStatus(401);
         };
     })
-    // if (req.body.username === rows[0].username && req.body.password === rows[0].password) {
-    //     res.send('correct');
-
-
-    // console.log(`Username ${req.body.username}`);
-    // console.log(`Password ${req.body.password}`);
 })
 
 

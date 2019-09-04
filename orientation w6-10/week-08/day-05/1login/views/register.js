@@ -14,6 +14,8 @@ form.addEventListener('submit', e => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status >= 200 && xhr.status < 300) {
                 console.log(`You have been registered as ${asd}`);
+                alert(`Thank you for registering ${asd}`)
+                location.href='http://localhost:3030'
             } else {
                 alert('Try again');
             }
