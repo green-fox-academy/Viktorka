@@ -40,7 +40,7 @@ const app = require('../routes');
 //         })
 // });
 
- 
+
 // test('groot endpoint no4 sends 200 in case of not missing param', (t) => {
 //     // TODO: implement it
 //     request(app)
@@ -66,52 +66,75 @@ const app = require('../routes');
 //         })
 // });
 
-test('yondu endpoint no1', (t) => {
-    // TODO: implement it
-    request(app)
-        .get('/yondu?distance=100&time=10')
-        // .send()
-        .end((err, res) => {
-            if (err) throw err;
-            t.same(res.body, {'distance':'100', 'time':'10','speed':10});
-            t.end()
-        })
-});
+// test('yondu endpoint no1', (t) => {
+//     // TODO: implement it
+//     request(app)
+//         .get('/yondu?distance=100&time=10')
+//         // .send()
+//         .end((err, res) => {
+//             if (err) throw err;
+//             t.same(res.body, {'distance':'100', 'time':'10','speed':10});
+//             t.end()
+//         })
+// });
 
-test('yondu endpoint no2', (t) => {
-    // TODO: implement it
-    request(app)
-        .get('/yondu?distance=100&time=0')
-        // .send()
-        .end((err, res) => {
-            if (err) throw err;
-            t.same(res.body, {'distance':'100', 'time':'0','speed':'Incalculable'});
-            t.end()
-        })
-});
+// test('yondu endpoint no2', (t) => {
+//     // TODO: implement it
+//     request(app)
+//         .get('/yondu?distance=100&time=0')
+//         // .send()
+//         .end((err, res) => {
+//             if (err) throw err;
+//             t.same(res.body, {'distance':'100', 'time':'0','speed':'Incalculable'});
+//             t.end()
+//         })
+// });
 
-test('yondu endpoint no3', (t) => {
-    // TODO: implement it
-    request(app)
-        .get('/yondu?distance=100&time=10')
-        // .send()
-        .end((err, res) => {
-            if (err) throw err;
-            t.equal(res.status,200)
-            // t.same(res.body, {'distance':'100', 'time':'10','speed':10});
-            t.end()
-        })
-});
+// test('yondu endpoint no3', (t) => {
+//     // TODO: implement it
+//     request(app)
+//         .get('/yondu?distance=100&time=10')
+//         // .send()
+//         .end((err, res) => {
+//             if (err) throw err;
+//             t.equal(res.status,200)
+//             // t.same(res.body, {'distance':'100', 'time':'10','speed':10});
+//             t.end()
+//         })
+// });
 
-test('yondu endpoint no4', (t) => {
-    // TODO: implement it
+// test('yondu endpoint no4', (t) => {
+//     // TODO: implement it
+//     request(app)
+//         .get('/yondu?distance=100&time=0')
+//         // .send()
+//         .end((err, res) => {
+//             if (err) throw err;
+//             t.equal(res.status,400)
+//             t.same(res.body, {'distance':'100', 'time':'0','speed':'Incalculable'});
+//             t.end()
+//         })
+// });
+
+test('rocket endpoint 1', (t) => {
     request(app)
-        .get('/yondu?distance=100&time=0')
-        // .send()
+        .get('/rocket')
         .end((err, res) => {
             if (err) throw err;
-            t.equal(res.status,400)
-            t.same(res.body, {'distance':'100', 'time':'0','speed':'Incalculable'});
+            t.equal(res.body.ready, false)
+            t.notEqual(res.body.shipstatus, 'Full' ) 
             t.end()
         })
-});
+})
+
+test('rocket endpoint 2', (t) => {
+    request(app)
+        .get('/rocket/fill?caliber=.25&amount=1500')
+        .end((err, res) => {
+            if (err) throw err;
+            t.equals(res.body.caliber25,1500)
+            t.equal(res.body.ready, false)
+            // t.equal(res.body.shipstatus, 'Full' ) 
+            t.end()
+        })
+})
