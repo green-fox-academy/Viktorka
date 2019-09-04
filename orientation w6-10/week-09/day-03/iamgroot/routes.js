@@ -60,6 +60,8 @@ function statusChecker() {
     actualCargo.shipstatus = `${statusNumber}%`
     if (statusNumber === 100) {
         actualCargo.shipstatus = 'Full'
+    } else if (statusNumber > 100){
+        actualCargo.shipstatus = 'Overloaded'
     }
     readyChecker()
     return statusNumber;
@@ -110,6 +112,9 @@ app.get('/rocket/fill', (req, res) => {
             "shipstatus": `${actualCargo.shipstatus}`,
             "ready": actualCargo.ready
         })
+    } else {
+        res.status(400)
+        res.send('give them parameters you knob')
     }
 })
 
