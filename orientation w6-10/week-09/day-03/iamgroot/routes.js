@@ -51,9 +51,22 @@ let actualCargo = {
     "ready": false
 }
 
-let allAmmo = actualCargo.caliber25 + actualCargo.caliber30 + actualCargo.caliber50
+let allAmmo
+let statusNumber;
+// let readyState=actualCargo.ready
+function statusChecker() {
+    allAmmo = actualCargo.caliber25 + actualCargo.caliber30 + actualCargo.caliber50;
+    statusNumber = (allAmmo / 12500) * 100;
+    actualCargo.shipstatus = `${statusNumber}%`
+    if (statusNumber === 100) {
+        actualCargo.shipstatus = 'Full'
+    }
+    readyChecker()
+    return statusNumber;
+}
+
 function readyChecker() {
-    if (allAmmo === 12500) {
+    if (statusNumber === 100) {
         actualCargo.ready = true;
     }
 }
@@ -70,15 +83,33 @@ app.get('/rocket/fill', (req, res) => {
     if (caliber == .25) {
         actualCargo.caliber25 += amount
         readyChecker()
-        res.send(`ammo received for ${req.query.caliber}`)
+        statusChecker()
+        res.send({
+            "received": caliber,
+            "amount": amount,
+            "shipstatus": `${actualCargo.shipstatus}`,
+            "ready": actualCargo.ready
+        })
     } else if (caliber == .30) {
         actualCargo.caliber30 += amount
         readyChecker()
-        res.send(`ammo received for ${req.query.caliber}`)
+        statusChecker()
+        res.send({
+            "received": caliber,
+            "amount": amount,
+            "shipstatus": `${actualCargo.shipstatus}`,
+            "ready": actualCargo.ready
+        })
     } else if (caliber == .50) {
-        ctualCargo.caliber50 += amount
+        actualCargo.caliber50 += amount
         readyChecker()
-        res.send(`ammo received for ${req.query.caliber}`)
+        statusChecker()
+        res.send({
+            "received": caliber,
+            "amount": amount,
+            "shipstatus": `${actualCargo.shipstatus}`,
+            "ready": actualCargo.ready
+        })
     }
 })
 
