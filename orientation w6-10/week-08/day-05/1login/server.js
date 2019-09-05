@@ -14,6 +14,7 @@ const connection = mysql.createConnection({
 
 app.use(express.static('views'))
 app.use(express.json());
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     res.sendFile('/views/login.html', { root: __dirname });
@@ -30,6 +31,9 @@ app.post('/register', (req, res) => {
         if (reply.length > 0) {
             res.status(400)
             res.send(`${req.body.username} is already in use`)
+        } else if (req.body.username === '' || req.body.username === 'kaki') {
+            res.status(401)
+            res.send(`Not authorised`)
         } else {
             connection.query(`INSERT INTO username(username,password) VALUES(?,?)`,
                 [req.body.username, req.body.password], function (err, result) {
@@ -45,8 +49,8 @@ app.post('/register', (req, res) => {
 })
 
 app.get('/forgot', (req, res) => {
-    connection.query(`SELECT username FROM username`, (err, username) =>
-    res.json(username))
+    connection.query(`SELECT * FROM username`, (err, username) =>
+        res.render('forgot', {username}))
 })
 
 app.post('/send', (req, res) => {
@@ -54,9 +58,8 @@ app.post('/send', (req, res) => {
     WHERE username=? 
     AND password=?`;
     connection.query(myQuery, [req.body.username, req.body.password], (err, rows) => {
-        // console.log(rows)
         if (rows.length > 0) {
-            res.send('correct')
+            res.send('correct');
         } else {
             res.sendStatus(401);
         };

@@ -16,8 +16,10 @@ form.addEventListener('submit', e => {
                 console.log(`You have been registered as ${asd}`);
                 alert(`Thank you for registering ${asd}`)
                 location.href='http://localhost:3030'
+            } else if (xhr.status===401){
+                alert(`unathorised username`)
             } else {
-                alert('Try again');
+                alert('Username already exists');
             }
         }
     };
