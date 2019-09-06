@@ -7,11 +7,11 @@ app.use(express.static('assets'));
 
 let evenArray = [];
 let oddArray = [];
+let wordsObj = {};
 function yodaSpeaking(content) {
     let newContent = content.split(" ");
-    let wordsObj = {}
     for (let i = 0; i < newContent.length; i++) {
-        if (i % 2 === 0 || i === 0) {
+        if (i % 2 === 0 || i === 0 && newContent[i] !== "") {
             evenArray.push(newContent[i])
         } else {
             oddArray.push(newContent[i])
@@ -21,34 +21,36 @@ function yodaSpeaking(content) {
     wordsObj.oddArray = oddArray;
     return wordsObj;
 }
-function countArrays(obj) { 
-    let checker = 0
+
+function stringifyMyArray(obj) {
+    let checker = 0;
     if (obj.evenArray.length > obj.oddArray.length) {
-        checker = obj.oddArray.length;
+        checker = obj.evenArray.length;
+    } else if (obj.evenArray.length < obj.oddArray.length) {
+        cheker = obj.oddArray.length;
     } else if (obj.evenArray.length === obj.oddArray.length) {
-        checker = obj.oddArray.length
-    } else {
-        cheker = obj.evenArray.length;
+        checker = oddArray.length
     }
     return checker;
 }
-function mixerOfTheWords(number){
-    let mixedText=[];
-    for (let i=0; i< number;i++){
-        mixedText.push(oddArray[i]);
-        mixedText.push(evenArray[i]);
+function mixerOfTheWords(number) {
+    let mixedText = [];
+    for (let i = 0; i < number; i++) {
+        if (oddArray[i] === undefined) {
+            mixedText.push(evenArray[i]);
+        } else {
+            mixedText.push(oddArray[i]);
+            mixedText.push(evenArray[i]);
+        }
     } return mixedText
 }
+let words = ["1 2 3 4 5 6 7"]
 
-function trystuff(text){
-    console.log(text)
-}
-
-
-app.post('/sith', (res, req) => {
-    req.json({
-        // "text": mixerOfTheWords(countArrays(yodaSpeaking(req.body.text)))
-        "text" : trystuff(req.body.text)
+app.post('/sith', (req, res) => {
+    // console.log(mixerOfTheWords(stringifyMyArray(yodaSpeaking(req.body.text))))
+    res.json({
+        "text": mixerOfTheWords(stringifyMyArray(yodaSpeaking(req.body.text)))
+        // "text" : "asd"
     })
 })
 

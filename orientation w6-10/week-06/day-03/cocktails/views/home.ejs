@@ -29,10 +29,10 @@
         <% for (let i=0; i< cocktails.length; i++){ %>
         <tr>
             <td>
-                <p class="makeMeBold"><%=cocktails[i].name%></p>
+                <p class="makeMeBold"><%=cocktails[i].name%>
                 <% if(cocktails[i].isAlcoholic === false) {%>
-                    <p class="non">(non-alcoholic)</p>
-                    <% }%>
+                     <span class="notBold ">(non-alcoholic) </span> </p>
+                <% }%>
                 <p><%=cocktails[i].contains%></p>
             </td>
             <td>

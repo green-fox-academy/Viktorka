@@ -60,7 +60,7 @@ const forecasts = [
         city: 'Budapest',
         location: 'Hungary',
         weather: [
-            { temp: 12, icon: 'partly_cloudy.png', message: 'It\'s cloudy.png.' },
+            { temp: 12, icon: 'partly_cloudy.png', message: 'It\'s cloudy.' },
             { temp: 16, icon: 'rainy.png', message: 'Sooo... Wet.' },
             { temp: 18, icon: 'partly_cloudy.png', message: 'Here comes the sun.' },
             { temp: 16, icon: 'partly_cloudy.png', message: 'Not too sunny.' },

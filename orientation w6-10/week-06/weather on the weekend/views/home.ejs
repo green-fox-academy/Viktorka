@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather</title>
-    <link rel="stylesheet" type="text/css" href="style.css"></style>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 
 <body>
     <h2>The weather</h2>
-    <div>
+    <div class="containerMain">
         <% for (let i=0; i< dashBoard.length; i++){ %>
         <div class="citiesOneByOne" location.href="https://localhost:3000">
             <p class="<%=dashBoard[i].city%>" </p><%= dashBoard[i].city%> <%= dashBoard[i].weather[0].temp %> °C </p>

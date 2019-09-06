@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="display">10</div>
+    <div class="display">5</div>
     <button>Defuse</button>
 </body>
 <script>
@@ -20,6 +20,9 @@
         counter--;
         if (counter <= -1) {
             display.textContent = "Bomb Exploded";
+            document.body.setAttribute('background', 'http://www.icanw.org/wp-content/uploads/2012/11/nuclearexplosion.jpg');
+            
+            
         }
     }, 1000);
 
@@ -27,6 +30,8 @@
 
     btn.onclick = () => {
         display.textContent = "Bomb Defused";
+        btn.disabled=true;
+        btn.textContent='all done sir!';
         clearInterval(intervalID);
     }
 

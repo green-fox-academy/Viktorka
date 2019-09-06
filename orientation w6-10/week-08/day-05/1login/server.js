@@ -1,29 +1,23 @@
 'use strict';
-
 const express = require('express');
 const app = express();
 const PORT = 3030;
 const mysql = require('mysql');
-
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'password',
     database: 'login',
 });
-
 app.use(express.static('views'))
 app.use(express.json());
 app.set('view engine', 'ejs');
-
 app.get('/', (req, res) => {
     res.sendFile('/views/login.html', { root: __dirname });
 })
-
 app.get('/register', (req, res) => {
     res.sendFile('/views/register.html', { root: __dirname });
 })
-
 app.post('/register', (req, res) => {
     let queryOfMine = ` SELECT username from username
     WHERE username=?`
@@ -47,12 +41,10 @@ app.post('/register', (req, res) => {
         }
     })
 })
-
 app.get('/forgot', (req, res) => {
     connection.query(`SELECT * FROM username`, (err, username) =>
         res.render('forgot', {username}))
 })
-
 app.post('/send', (req, res) => {
     let myQuery = `SELECT * FROM username
     WHERE username=? 
@@ -65,8 +57,6 @@ app.post('/send', (req, res) => {
         };
     })
 })
-
-
 app.listen(PORT, () => {
     console.log(`listening on ${PORT}`)
 })

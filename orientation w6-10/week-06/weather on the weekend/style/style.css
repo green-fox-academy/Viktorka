@@ -1,9 +1,41 @@
 body {
     background-color: gray;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+
+
+.containerMain{
+    width:25%;
+    margin: 0px;
+}
+
+.containerMain2{
+    width:25%;
+    margin:inherit;
 }
 
 .citiesOneByOne {
-    margin: 10px;
-    background-color: white;
-    width: 25%;
+    margin-bottom: 10px;
+    background-color: white;     
 }
+
+
+.containerMain :hover {
+    cursor: pointer; 
+    /* transform: scale(1.2); */
+   
+}
+
+.containerMain2 :hover {
+    /* transform: scale(1.2); */
+    cursor: pointer; 
+}
+
+.allTheInfo {
+    margin-bottom: 10px;
+    background-color: white;
+}
+

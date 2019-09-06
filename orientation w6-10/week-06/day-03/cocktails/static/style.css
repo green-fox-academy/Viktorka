@@ -1,14 +1,14 @@
 h1 {
-  color: tomato;
+  color: black;
 }
 
 a {
 display: inline-block;
 text-decoration: none;
 text-transform: uppercase;
-background-color: black;
+/* background-color: black; */
 margin-right: 15px;
-color: white;
+color: black;
 }
 
 header{
@@ -16,7 +16,7 @@ header{
   
 }
 body {
-  background-color: black;
+  background-color: white;
 }
 table {
     font-family: arial, sans-serif;
@@ -33,24 +33,29 @@ table {
     
   }
   th{
-    background-color :#dddddd;
-    color:black;
+    background-color :black;
+    color:white;
     border: 1px solid black;
   }
   
   tr:nth-child(even) {
     background-color: #dddddd;
     
+    
   }
   tr:nth-child(odd){
-    background-color: black;
-    color:white;
+    background-color: gray;
+    color:black;
   }
 
   .makeMeBold{
-    font-weight: bold;
+    font-weight:bold ;
   }
 
   .non {
     align-items: flex-end;
+  }
+
+  .notBold {
+    font-weight: normal;
   }

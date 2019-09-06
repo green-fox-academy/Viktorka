@@ -19,8 +19,6 @@ xhr.onreadystatechange = function () {
             console.log('Something went wrong');
         }
     }
-
-
 }
 
 xhr.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=6JVGuv1RRLtFyGiD0Tz2TUdIcO09ccm5&q=vegan&limit=15&offset=0&rating=G&lang=en', true); // Also try http://444.hu/feed

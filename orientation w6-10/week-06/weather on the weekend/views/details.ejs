@@ -6,33 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%=city%>`s weather</title>
-    <style>
-        body {
-            background-color: gray;
-        }
-
-        div {
-            margin: 5px;
-            background-color: white;
-            width: 10%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 
 <body>
     <h2><%=city%></h2>
-    <% for (let i=0; i< dailyBoard.length; i++){ %>
-    <div>
-        <p><img src=<%= dailyBoard[i].icon %> height=40px width=40px></p>
-        <p><%= dailyBoard[i].temp%> °C </p>
-        <p><%= dailyBoard[i].message%> </p></span>
+    <div class="containerMain2">
+        <% for (let i=0; i< dailyBoard.length; i++){ %>
+        <div class="allTheInfo">
+            <img src=<%= dailyBoard[i].icon %> height=40px width=40px>
+            <p class="detailedPic"><%= dailyBoard[i].temp%> °C </p>
+            <p class="detailedPic"><%= dailyBoard[i].message%> </p></span>
+        </div>
+        <% } %>
     </div>
-    <% } %>
     <form>
         <input type="button" value="Go back!" onclick="history.back()">
     </form>
 
-    
+
 </body>
 
 </html>

@@ -10,7 +10,6 @@ xhr.onreadystatechange = function () {
             let response = JSON.parse(xhr.responseText);
             bookInfo(response);
             console.log(response)
-
         }
     }
 }
@@ -68,11 +67,7 @@ function bookInfo(data) {
         tableD3.appendChild(pelement3);
     });
     tableHeader4.innerText = 'Publisher';
-    // data.forEach(element => {
-    //     let pelement4 = document.createComment('p');
-    //     pelement4.innerText = element.pub_name;
-    //     tableD4.appendChild(pelement4);
-    // })
+
     for (let i = 0; i < data.length; i++) {
         let pelement4 = document.createElement('p');
         pelement4.innerText = data[i].pub_name;
@@ -80,13 +75,13 @@ function bookInfo(data) {
     }
     tableHeader5.innerText = 'Price';
     // data.forEach(element => {
-    //     let pelement5 = document.createComment('p');
+    //     let pelement5 = document.createElement('p');
     //     pelement5.innerText = element.book_price;
     //     tableD5.appendChild(pelement5);
     // })
     for (let i = 0; i < data.length; i++) {
         let pelement5 = document.createElement('p');
-        pelement5.innerText = '$ '+data[i].book_price;
+        pelement5.innerText = '$ ' + data[i].book_price;
         tableD5.appendChild(pelement5);
     }
 

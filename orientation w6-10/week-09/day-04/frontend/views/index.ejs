@@ -93,7 +93,7 @@
             <article>
                 <% for (let i=index.length-1; i>= 0; i--) { %>
                 <div class="theField">
-                    <p>id:<%= index[i].title %> </p> URL: <a href="<%= index[i].url %>"><%= index[i].url %></a>
+                    <p>id:<%= index[i].title %> </p><p>Score: <%=index[i].score%></p><p> URL: <a href="<%= index[i].url %>"><%= index[i].url %></a></p>
                 </div>
                     <% } %>
             </article>
