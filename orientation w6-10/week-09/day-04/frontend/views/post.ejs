@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=#, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="title"> Title</label>
+        <input type="text" id="title" name="title" required>
+        <lablel for="url"> URL</lablel>
+        <input type="url" id="url" name="url" required>
+        <input type="submit" value="SEND ME YOU FILTH!">
+    </form>
+    <script>
+        const title = document.querySelector('#title');
+        const url = document.querySelector('#url');
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = () => {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(`thanks`)
+                    location.href = 'http://localhost:2999'
+                }
+            }
+       
+        xhr.open('POST', '/post');
+        xhr.setRequestHeader('Content-Type', 'application/json')
+        xhr.send(JSON.stringify({title: title.value, url: url.value}))
+        form.reset()
+        });
+
+    </script>
+</body>
+
+</html>

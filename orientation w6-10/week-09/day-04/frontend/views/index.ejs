@@ -13,7 +13,7 @@
 
     body {
         background: lightslategray;
-        
+
     }
 
     .container {
@@ -25,7 +25,7 @@
         height: 30vh;
         margin-bottom: 15px;
         letter-spacing: 5vh;
-        display:grid;
+        display: grid;
         /* grid-template-columns: repeat(21 1fr); */
         grid-template-rows: repeat(5, 1fr);
     }
@@ -45,18 +45,21 @@
         margin-left: 3%;
     }
 
-    .about >p, li {
+    .about>p,
+    li {
         margin-left: 1vh;
     }
 
-    .about >h3 {
+    .about>h3 {
         background: lightgrey;
-        padding:1.5vh;
+        padding: 1.5vh;
     }
-    .about > p{
-     text-align: center;
+
+    .about>p {
+        text-align: center;
     }
-    article > p {
+
+    article>.theField {
         margin-bottom: 3px;
         background: white;
     }
@@ -65,19 +68,18 @@
         width: 60%;
         margin-left: 3%;
     }
+
     button {
-        width:100%;
+        width: 100%;
         height: 4vh;
-        text-transform:uppercase;
+        text-transform: uppercase;
         background-color: blue;
         color: white;
         font-weight: bold;
         letter-spacing: 0.3vh;
-        border: solid 1px blue; 
+        border: solid 1px blue;
         margin-bottom: 1vh;
     }
-
-
 </style>
 
 <body>
@@ -90,17 +92,17 @@
         <main>
             <article>
                 <% for (let i=index.length-1; i>= 0; i--) { %>
-                <p>id:<%= index[i].title %> <br> URL:<%= index[i].url %></p>
-                <% } %>
+                <div class="theField">
+                    <p>id:<%= index[i].title %> </p> URL: <a href="<%= index[i].url %>"><%= index[i].url %></a>
+                </div>
+                    <% } %>
             </article>
-            <article>
-                <p>asdasd</p>
-            </article>
+         
         </main>
         <aside>
-            <button>Submit a new post</button>
+            <button onclick="redirect()">Submit a new post</button>
             <div class="about">
-                <h3 class="whatAbout">About</h3> 
+                <h3 class="whatAbout">About</h3>
                 <p>Share and discuss</p>
                 <li>list 1</li>
                 <li>list 2</li>
@@ -113,11 +115,15 @@
         let h1 = document.querySelector('h1');
         let a = document.createElement('a')
         let whatabout = document.querySelector('.whatAbout');
-        a.setAttribute('href','#')
-        a.textContent=` r/${h1.textContent.toLowerCase()}`
+        a.setAttribute('href', '#')
+        a.textContent = ` r/${h1.textContent.toLowerCase()}`
         whatabout.appendChild(a)
         let btn = document.querySelector('button')
-        btn.onclick(location=)
+
+        function redirect() {
+            window.location = 'http://localhost:2999/post'
+        }
+        // btn.onclick(location=)
     </script>
 </body>
 
