@@ -43,6 +43,7 @@
         height: 30vh;
         margin-right: 3%;
         margin-left: 3%;
+        /* position:fixed; */
     }
 
     .about>p,
@@ -69,7 +70,7 @@
         margin-left: 3%;
     }
 
-    .upvote {
+    /* .upvote {
         background-image: url("https://github.com/green-fox-academy/Sidhava/blob/master/week-09/day-05/reddit-frontend_next/assets/upvote.png?raw=true");
         color: white;
         background-color: white;
@@ -79,7 +80,7 @@
         background-image: url("https://github.com/green-fox-academy/Sidhava/blob/master/week-09/day-05/reddit-frontend_next/assets/downvote.png?raw=true");
         color: white;
         background-color: white;
-    }
+    } */
 
     aside>button {
         width: 100%;
@@ -107,13 +108,13 @@
                 <% for (let i=index.length-1; i>= 0; i--) { %>
                 <div class="theField">
                     <p>id:<%= index[i].title %> </p>
-                    <button class="upvote">---</button>
+                    <button class="upvote">upvote</button>
                     <p>Score: <%=index[i].score%></p>
-                    <button class="downvote">---</button>
+                    <button class="downvote">downvote</button>
                     <p> URL: <a href="<%= index[i].url %>"><%= index[i].url %></a></p>
-                    <p class="hide"> <%=index[i].id%></p>
                     <form class="delete">
-                        <input type="submit" value="delete">
+                    <p class="hide"> <%=index[i].id%></p>
+                        <input type="submit" value="remove post">
                     </form>
                 </div>
                 <% } %>
