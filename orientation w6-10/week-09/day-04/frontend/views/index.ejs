@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Da frontend</title>
+
 </head>
 <style>
     * {
@@ -26,7 +27,6 @@
         margin-bottom: 15px;
         letter-spacing: 5vh;
         display: grid;
-        /* grid-template-columns: repeat(21 1fr); */
         grid-template-rows: repeat(5, 1fr);
     }
 
@@ -69,7 +69,19 @@
         margin-left: 3%;
     }
 
-    button {
+    .upvote {
+        background-image: url("https://github.com/green-fox-academy/Sidhava/blob/master/week-09/day-05/reddit-frontend_next/assets/upvote.png?raw=true");
+        color: white;
+        background-color: white;
+    }
+
+    .downvote {
+        background-image: url("https://github.com/green-fox-academy/Sidhava/blob/master/week-09/day-05/reddit-frontend_next/assets/downvote.png?raw=true");
+        color: white;
+        background-color: white;
+    }
+
+    aside>button {
         width: 100%;
         height: 4vh;
         text-transform: uppercase;
@@ -80,24 +92,33 @@
         border: solid 1px blue;
         margin-bottom: 1vh;
     }
+    .hide {
+        display:none;
+    }
 </style>
 
 <body>
     <header>
         <h1>SPACE</h1>
-        <!-- <img src="data:image/jpeg;base64,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"
-            width="120px" height="150px"> -->
     </header>
     <div class="container">
         <main>
             <article>
                 <% for (let i=index.length-1; i>= 0; i--) { %>
                 <div class="theField">
-                    <p>id:<%= index[i].title %> </p><p>Score: <%=index[i].score%></p><p> URL: <a href="<%= index[i].url %>"><%= index[i].url %></a></p>
+                    <p>id:<%= index[i].title %> </p>
+                    <button class="upvote">---</button>
+                    <p>Score: <%=index[i].score%></p>
+                    <button class="downvote">---</button>
+                    <p> URL: <a href="<%= index[i].url %>"><%= index[i].url %></a></p>
+                    <p class="hide"> <%=index[i].id%></p>
+                    <form class="delete">
+                        <input type="submit" value="delete">
+                    </form>
                 </div>
-                    <% } %>
+                <% } %>
             </article>
-         
+
         </main>
         <aside>
             <button onclick="redirect()">Submit a new post</button>
@@ -111,7 +132,7 @@
             </div>
         </aside>
     </div>
-    <script>
+    <!-- <script>
         let h1 = document.querySelector('h1');
         let a = document.createElement('a')
         let whatabout = document.querySelector('.whatAbout');
@@ -119,12 +140,11 @@
         a.textContent = ` r/${h1.textContent.toLowerCase()}`
         whatabout.appendChild(a)
         let btn = document.querySelector('button')
-
         function redirect() {
             window.location = 'http://localhost:2999/post'
         }
-        // btn.onclick(location=)
-    </script>
+    </script> -->
+    <script type="text/javascript" src="/index.js"></script>
 </body>
 
 </html>

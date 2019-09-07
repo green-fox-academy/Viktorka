@@ -14,26 +14,25 @@ const connection = mysql.createConnection({
     database: 'reddit',
 });
 
-
-// app.get('/articles',  (req, res) => {
-//   res.render('index');
-// });
-
 app.get('/', (req, res) => {
     //   fetch('http://secure-reddit.herokuapp.com/simple/posts')
     //     .then(answer => answer.json())
     //     .then(json => res.render('index', { index: json.posts }));
     connection.query(`SELECT * from reddit`, (err, index) =>
-        // res.send(console.log))
         res.render('index', { index }))
 })
 
-
-
-// app.get('/forgot', (req, res) => {
-//     connection.query(`SELECT * FROM username`, (err, username) =>
-//         res.render('forgot', { username }))
-// })
+app.post('/', (req,res) => {
+    connection.query(`DELETE FROM reddit
+    WHERE id=?`,[req.body.id], (err,resp)=>{
+        if (err){
+            res.send(err.message)
+            res.status(401)
+        } else {
+            res.send(resp)
+        }
+    })
+})
 
 app.get('/post', (req, res) => {
     res.render('post')
