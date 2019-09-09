@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Really amazing music player aka Winamp 2.0</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/678798a431.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo"><img src="/foxplayer.png" width="150px">
+        </div>
+        <div class="artwork"> <img src="/music-placeholder.png" width="200px">
+        </div>
+        <div class="current">current <span>+ <img src="/download.svg" width="25px"> </span>
+        </div>
+        <div class="playlistControl">playlist <span>+</span>
+        </div>
+        <div class="playlist">playlist
+        </div>
+        <div class="tracks">tracks
+     
+                <%= dbInfo %>
+
+        </div>
+        <div class="control">
+            <div>
+                <button class="prev">prev</button>
+                <button class="next">next</button>
+                <audio controls src="/1.mp3">
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <script src="/audio.js"></script>
+</body>
+
+</html>
+
+    
+
+
+<!-- logo
+artwork
+current playing
+
+playlists
+tracks
+control panel -->
