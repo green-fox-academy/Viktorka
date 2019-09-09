@@ -1,9 +1,9 @@
 'use strict';
 
 const audio = document.querySelector('audio');
-const play = document.querySelector('#play')
-const next=document.querySelector('.next')
-const prev=document.querySelector('.prev')
+const play = document.querySelector('#play');
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
 
 // play.onclick =() => {
 // play.play()
@@ -15,6 +15,10 @@ audio.addEventListener('ended', () => console.log('ended happened'));
 audio.addEventListener('progress', () => console.log('progress happened'));
 
 let nextSong = () => {
-    
+    console.log('next song')
 }
-next.addEventListener('click', nextSong)
+let prevSong = () => {
+    console.log('prev song')
+}
+next.addEventListener('click', nextSong);
+prev.addEventListener('click', prevSong);

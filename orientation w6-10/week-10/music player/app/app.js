@@ -1,5 +1,4 @@
 const express = require('express');
-// const fetch = require('node-fetch');
 const app = express();
 const mysql = require('mysql');
 app.use(express.json());
@@ -15,11 +14,18 @@ const connection = mysql.createConnection({
 });
 
 app.get('/', (req, res) => {
-    //   fetch('http://secure-reddit.herokuapp.com/simple/posts')
-    //     .then(answer => answer.json())
-    //     .then(json => res.render('index', { index: json.posts }));
-    connection.query(`SELECT * from music_player`, (err, dbInfo) =>
-        res.render('index', { dbInfo }))
+    connection.query(`SELECT * from music_player`, (err, dbInfo) => 
+        res.render('index.ejs', { dbInfo :dbInfo }))
 })
+
+// app.get('/', (req, res) => {
+//     connection.query('select * from music_player;', (err, dbInfo) => {
+//         if (err) {
+//             // alert('Oops, something went wrong');
+//         } else {
+//             res.render('index', { dbInfo: dbInfo });
+//         }
+//     });
+// });
 
 module.exports = app;

@@ -23,9 +23,10 @@
         <div class="playlist">playlist
         </div>
         <div class="tracks">tracks
-     
-                <%= dbInfo %>
-
+            
+                <% dbInfo.forEach(function(e){ %>
+                    <p><%= e.title %></p>
+                    <% }) %>
         </div>
         <div class="control">
             <div>
@@ -42,13 +43,13 @@
 
 </html>
 
-    
+
 
 
 <!-- logo
-artwork
-current playing
-
-playlists
+    artwork
+    current playing
+    
+    playlists
 tracks
 control panel -->
