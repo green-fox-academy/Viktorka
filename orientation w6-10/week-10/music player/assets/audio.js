@@ -5,6 +5,8 @@ const play = document.querySelector('#play');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 const playlist = document.querySelectorAll('.hide')
+let actualSong = document.querySelector('.hide')
+actualSong.classList.add('actual')
 
 // play.onclick =() => {
 // play.play()
@@ -16,15 +18,15 @@ audio.addEventListener('ended', () => console.log('ended happened'));
 audio.addEventListener('progress', () => console.log('progress happened'));
 
 let nextSong = () => {
-    // console.log(playlist[0].innerHTML)
-    let source;
-    for (let i = 0; i < playlist.length; i++) {
-        source=playlist[i+1].innerHTML;
-        console.log(source)
-        audio.src=source;
-    //    return source
+    let nextSong = document.querySelector('.actual').parentElement.nextElementSibling.childNodes[3];
+    if (document.querySelector('.actual').parentElement.nextElementSibling === null) {
+        nextSong = document.querySelector('.hide')
     }
-
+    let removeMe = document.querySelector('.actual')
+    audio.src = nextSong.textContent;
+    removeMe.classList.remove('actual');
+    nextSong.classList.add('actual');
+    // console.log(removeMe)
 }
 let prevSong = () => {
     console.log('prev song')
