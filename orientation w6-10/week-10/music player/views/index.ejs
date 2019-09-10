@@ -22,10 +22,10 @@
         </div>
         <div class="playlist">playlist
         </div>
-        <div class="tracks">tracks
+        <div class="tracks">
             
                 <% dbInfo.forEach(function(e){ %>
-                    <p><%= e.title %></p>
+                    <p><%= e.title %><span> - <%= e.artist %></span> <span class="hide"> <%= e.url %></span></p>
                     <% }) %>
         </div>
         <div class="control">

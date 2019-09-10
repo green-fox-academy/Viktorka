@@ -14,8 +14,9 @@ const connection = mysql.createConnection({
 });
 
 app.get('/', (req, res) => {
-    connection.query(`SELECT * from music_player`, (err, dbInfo) => 
-        res.render('index.ejs', { dbInfo :dbInfo }))
+    connection.query(`SELECT * from music_player`, (err, dbInfo) => {
+        // console.log(dbInfo)
+        res.render('index.ejs', { dbInfo: dbInfo })})
 })
 
 // app.get('/', (req, res) => {

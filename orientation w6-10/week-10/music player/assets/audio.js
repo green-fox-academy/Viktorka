@@ -4,6 +4,7 @@ const audio = document.querySelector('audio');
 const play = document.querySelector('#play');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
+const playlist = document.querySelectorAll('.hide')
 
 // play.onclick =() => {
 // play.play()
@@ -15,7 +16,15 @@ audio.addEventListener('ended', () => console.log('ended happened'));
 audio.addEventListener('progress', () => console.log('progress happened'));
 
 let nextSong = () => {
-    console.log('next song')
+    // console.log(playlist[0].innerHTML)
+    let source;
+    for (let i = 0; i < playlist.length; i++) {
+        source=playlist[i+1].innerHTML;
+        console.log(source)
+        audio.src=source;
+    //    return source
+    }
+
 }
 let prevSong = () => {
     console.log('prev song')
