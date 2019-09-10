@@ -13,15 +13,14 @@ function redirect() {
 }
 
 //working to delete top post
-const form = document.querySelectorAll('.delete');
-form.forEach(element => {
+const deleteForm = document.querySelectorAll('.delete');
 
+deleteForm.forEach(element => {
     element.addEventListener('submit', e => {
         e.preventDefault();
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
             if (xhr.status >= 200 && xhr.status < 300) {
-                console.log(element.textContent)
                 location.href = 'http://localhost:2999'
             }
         }
@@ -29,9 +28,85 @@ form.forEach(element => {
         xhr.open('POST', '/');
         xhr.setRequestHeader('Content-Type', 'application/json')
         xhr.send(JSON.stringify({ id: element.textContent }))
-        form.reset()
+        deleteForm.reset()
     });
 })
+
+const upvote = () => {
+    let upvote = document.querySelector('upvote');
+    upvote.addEventListener('click', e => {
+        e.preventDefault();
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                location.href = 'http://localhost:2999'
+            }
+        }
+
+        xhr.open('POST', '/');
+        xhr.setRequestHeader('Content-Type', 'application/json')
+        xhr.send(JSON.stringify({ id: element.textContent }))
+        deleteForm.reset()
+    })
+}
+// DOWNVOTE WORKS SOMEWHERE ELSE
+// app.put('/posts/:id/downvote', (req, res) => {
+//     const idNumber = req.params.id;
+//     connection.query(
+//       `UPDATE reddit SET score = score - 1 WHERE id = ?;`, idNumber, (err, rows) => {
+//         if (err) {
+//           console.log(err);
+//           res.sendStatus(500);
+//           return;
+//         } else {
+//           res.json('downvoted');
+//         }
+//       })
+  
+
+// const upvoteForm = document.querySelectorAll('.upvote')
+// upvote.forEach(element => {
+//     element.addEventListener('submit', e => {
+//         e.preventDefault();
+//         const xhr = new XMLHttpRequest();
+//         xhr.onreadystatechange = () => {
+//             if (xhr.status >= 200 && xhr.status < 300) {
+//                 location.href = 'http://localhost:2999'
+//             }
+//         }
+
+//         xhr.open('POST', '/');
+//         xhr.setRequestHeader('Content-Type', 'application/json')
+//         xhr.send(JSON.stringify({ id: element.textContent , score :}))
+//         deleteForm.reset()
+//     });
+// })
+
+// let score = document.querySelector('.score');
+// score.textContent = 6;
+
+// function xhrMagic(body, bodyValue) {
+//     e.preventDefault();
+//     const xhr = new XMLHttpRequest();
+//     xhr.onreadystatechange = () => {
+//         if (xhr.status >= 200 && xhr.status < 300) {
+//             location.href = 'http://localhost:2999'
+//         }
+//     }
+
+//     xhr.open('POST', '/');
+//     xhr.setRequestHeader('Content-Type', 'application/json')
+//     xhr.send(JSON.stringify({ id: bodyValue }))
+//     deleteForm.reset()
+// };
+
+
+//remove post as on click add event listener?
+
+// xhr.send = > +1 for upvote text content update database?
+
+
+
 
 
 // const id = document.querySelector('.hide');
@@ -62,15 +137,15 @@ form.forEach(element => {
 //         changeText();
 //     }
 // }
-// const form = document.querySelectorAll('.delete');
+// const deleteForm = document.querySelectorAll('.delete');
 // // const deleteMe = document.querySelector('.delete').classList.add('toDelete');
 
 // const toDelete = document.querySelector('.toDelete')
 // if (toDelete !== null) {
-//     for (let i = 0; i < form.length; i++) {
-//         form[i].onclick = () => {
+//     for (let i = 0; i < deleteForm.length; i++) {
+//         deleteForm[i].onclick = () => {
 //             // document.querySelector('.toDelete').classList.remove('toDelete')
-//             form[i].classList.add('toDelete')
+//             deleteForm[i].classList.add('toDelete')
 //         }
 //     }
 //     toDelete.addEventListener('submit', e => {
@@ -86,11 +161,11 @@ form.forEach(element => {
 //         xhr.open('POST', '/');
 //         xhr.setRequestHeader('Content-Type', 'application/json')
 //         xhr.send(JSON.stringify({ id: toDelete.textContent }))
-//         form.reset()
+//         deleteForm.reset()
 //     });
 // }
 
-// form.forEach(element => {
+// deleteForm.forEach(element => {
 //     element.addEventListener('submit', e => {
 //         e.preventDefault();
 //         const xhr = new XMLHttpRequest();
@@ -103,6 +178,6 @@ form.forEach(element => {
 //         xhr.open('POST', '/');
 //         xhr.setRequestHeader('Content-Type', 'application/json')
 //         xhr.send(JSON.stringify({ id: element.textContent }))
-//         form.reset()
+//         deleteForm.reset()
 //     });
 // })
