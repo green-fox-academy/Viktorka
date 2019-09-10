@@ -19,6 +19,12 @@ app.get('/', (req, res) => {
         res.render('index.ejs', { dbInfo: dbInfo })})
 })
 
+app.get('/playlist', (req, res) => {
+    connection.query(`SELECT * from playlist`, (err, playlist) => {
+        res.send(playlist)
+    })
+})
+
 // app.get('/', (req, res) => {
 //     connection.query('select * from music_player;', (err, dbInfo) => {
 //         if (err) {
