@@ -29,7 +29,7 @@ app.post('/api/links', (req, res) => {
       const secret_code = Math.floor(1000 + Math.random() * 9000);
       connection.query(`INSERT into aliases (url, alias, secret_code) VALUES(?,?,?)`, [req.body.url, req.body.alias, secret_code], (err, rows) => {
         if (err) {
-          res.send(err.message)
+          console.log(err.message)
         } else {
           connection.query(`select * from aliases where alias=?`, [req.body.alias], (err, reply) => {
             res.send(reply)
@@ -39,8 +39,8 @@ app.post('/api/links', (req, res) => {
     }
   })
 })
-app.get('/api/links',(req,res) => {
-  connection.query(`SELECT id,url,alias,hit_count from aliases`, (err,resp)=>{
+app.get('/api/links', (req, res) => {
+  connection.query(`SELECT id,url,alias,hit_count from aliases`, (err, resp) => {
     res.send(resp)
   })
 })
@@ -56,21 +56,31 @@ app.get('/a/:alias', (req, res) => {
       WHERE alias=?`,
         [req.params.alias],
         (err, reply) => {
-          if(err){
+          if (err) {
             console.log(err.message)
-          }else{
+          } else {
             connection.query(`SELECT url from aliases 
-            WHERE alias=?`,[req.params.alias], (err,reply) =>{
+            WHERE alias=?`, [req.params.alias], (err, reply) => {
               // console.log(reply[0].url)
               res.redirect(reply[0].url)
             })
           }
-          
+
         })
     }
   })
 })
-
+app.delete('/api/links/:id', (req, res) => {
+  connection.query(`SELECT secret_code from aliases where id=?`[req.params.id], (err, reply) => {
+    if (req.body.secret_code !== reply) {
+      res.sendStatus(403)
+    } else if (reply === req.body.secret_code) {
+      connection.query(`DELETE from aliases WHERE id=?`, [req.params.id], (err, resp) => {
+        res.send(resp)
+      })
+    }
+  })
+})
 
 
 module.exports = app;
