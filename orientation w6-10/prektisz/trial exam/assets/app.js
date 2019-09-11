@@ -18,20 +18,19 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/links', (req, res) => {
-  const { url, alias } = req.body;
+  console.log(req.body.alias)
   connection.query(`SELECT alias from aliases
   where alias=?`, [req.body.alias], (err, resp) => {
     if (resp.length > 0) {
-      res.status(400)
-      res.send(`${alias} alread in use b`)
+      res.sendStatus(400)
+      // res.send(`${alias} alread in use b`)
     } else {
       const secret_code = Math.floor(1000 + Math.random() * 9000);
-      connection.query(`INSERT into aliases (url, alias, secret_code) VALUES(?,?,?)`, [url, alias, secret_code], (err, rows) => {
+      connection.query(`INSERT into aliases (url, alias, secret_code) VALUES(?,?,?)`, [req.body.url, req.body.alias, secret_code], (err, rows) => {
         if (err) {
           res.send(err.message)
         } else {
-          // console.log(rows)
-          connection.query(`select * from aliases where alias=?`,[alias],(err,reply) =>{
+          connection.query(`select * from aliases where alias=?`,[req.body.alias],(err,reply) =>{
             res.send(reply)
           })
         }
