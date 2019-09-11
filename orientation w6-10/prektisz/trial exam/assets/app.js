@@ -18,7 +18,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/links', (req, res) => {
-  console.log(req.body.alias)
+  // console.log(req.body.alias)
+  console.log(req.body)
   connection.query(`SELECT alias from aliases
   where alias=?`, [req.body.alias], (err, resp) => {
     if (resp.length > 0) {
@@ -30,7 +31,7 @@ app.post('/api/links', (req, res) => {
         if (err) {
           res.send(err.message)
         } else {
-          connection.query(`select * from aliases where alias=?`,[req.body.alias],(err,reply) =>{
+          connection.query(`select * from aliases where alias=?`, [req.body.alias], (err, reply) => {
             res.send(reply)
           })
         }
@@ -38,5 +39,38 @@ app.post('/api/links', (req, res) => {
     }
   })
 })
+app.get('/api/links',(req,res) => {
+  connection.query(`SELECT id,url,alias,hit_count from aliases`, (err,resp)=>{
+    res.send(resp)
+  })
+})
+
+app.get('/a/:alias', (req, res) => {
+  // console.log(req.params.alias)
+  connection.query(`SELECT alias from aliases where alias=?`, [req.params.alias], (err, resp) => {
+    if (resp.length === 0) {
+      res.sendStatus(404)
+    } else {
+      connection.query(`UPDATE aliases 
+      SET hit_count= hit_count + 1
+      WHERE alias=?`,
+        [req.params.alias],
+        (err, reply) => {
+          if(err){
+            console.log(err.message)
+          }else{
+            connection.query(`SELECT url from aliases 
+            WHERE alias=?`,[req.params.alias], (err,reply) =>{
+              // console.log(reply[0].url)
+              res.redirect(reply[0].url)
+            })
+          }
+          
+        })
+    }
+  })
+})
+
+
 
 module.exports = app;
