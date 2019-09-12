@@ -71,15 +71,31 @@ app.get('/a/:alias', (req, res) => {
   })
 })
 app.delete('/api/links/:id', (req, res) => {
-  connection.query(`SELECT secret_code from aliases where id=?`[req.params.id], (err, reply) => {
-    if (req.body.secret_code !== reply) {
+  connection.query(`SELECT secret_code from aliases where id=?`, [req.params.id], (err, reply) => {
+    // let secret_code = req.body.secret_code
+    // let id = req.params.id
+    if (req.body.secret_code !== reply[0].secret_code) {
       res.sendStatus(403)
-    } else if (reply === req.body.secret_code) {
+      console.log("not ok")
+      // res.send(reply)
+    }
+    //  else if (reply.length ===0 ) {
+    //   res.sendStatus(404)
+    //   console.log('no input')
+    // }
+     else if (req.body.secret_code == reply[0].secret_code){
       connection.query(`DELETE from aliases WHERE id=?`, [req.params.id], (err, resp) => {
+        console.log(`data deleted`)
         res.send(resp)
       })
     }
+    // } else if (req.body.secret_code === reply) {
+    //   connection.query(`DELETE from aliases WHERE id=?`, [req.params.id], (err, resp) => {
+    //     res.send(resp)
+    //   })
+    // }
   })
+
 })
 
 
