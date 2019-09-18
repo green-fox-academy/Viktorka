@@ -43,19 +43,19 @@ app.post('/api/items/:id', (req, res) => {
       res.sendStatus(500)
     } else {
       if (new Date() > resp[0].expiryDate) {
-        res.send({ "message": "expired" });
+        res.send({  message: 'expired' });
       } else if (req.body.amount < resp[0].highestBid) {
-        res.send({ "message": "Your bid is below the highest bid!" })
-      } else if (req.body.amount > resp[0].highestBid){
+        res.send({ message: 'Your bid is below the highest bid!' })
+      } else if (req.body.amount > resp[0].highestBid) {
         connection.query(`UPDATE items
         SET highestBid=?,
         highestBidderName=?
-        WHERE id=?;`,[req.body.amount,req.body.name,req.params.id], (err, rows) => {
+        WHERE id=?;`, [req.body.amount, req.body.name, req.params.id], (err, rows) => {
           if (err) {
             console.log(err.message)
             res.sendStatus(500);
           } else {
-            res.send({message:'Success! oh yeah'})
+            res.send({ message: 'Success! oh yeah' })
           }
         })
       }

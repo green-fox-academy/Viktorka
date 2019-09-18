@@ -54,10 +54,18 @@ form.addEventListener('submit', e => {
     }
   }).then(response => response.json())
     .then(response => {
-      let pElem = document.createElement('p');
-      pElem.textContent = response.message;
-      document.querySelector('body').appendChild(pElem);
-      form.reset();
-      // window.location.reload();
+      if (document.querySelector('p')) {
+        document.querySelector('body').removeChild(document.querySelector('p'));
+        let pElem = document.createElement('p');
+        pElem.textContent = response.message;
+        document.querySelector('body').appendChild(pElem);
+      } else {
+        let pElem = document.createElement('p');
+        pElem.textContent = response.message;
+        document.querySelector('body').appendChild(pElem);
+      }
+      if (response.message === 'Success! oh yeah') {
+        window.location.reload();
+      }
     });
 })
