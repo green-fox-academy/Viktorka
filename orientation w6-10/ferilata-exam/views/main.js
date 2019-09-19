@@ -4,7 +4,7 @@ const ul = document.querySelector('ul');
 const form = document.querySelector('form');
 const bider = document.getElementById('name');
 const bid = document.getElementById('amount');
-
+// const dog = document.getElementById('Dog')
 
 window.onload = function loadData() {
   fetch('/api/items')
@@ -48,7 +48,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   fetch(`/api/items/${select.value}`, {
     method: 'POST',
-    body: JSON.stringify({ id: select.value, name: bider.value, amount: bid.value }),
+    body: JSON.stringify({ id: select.value, name: /*dog*/bider.value, amount: bid.value }),
     headers: {
       'Content-type': 'application/json'
     }
