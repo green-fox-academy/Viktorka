@@ -40,11 +40,11 @@ app.post('/api/items/new', (req, res) => {
   (title,expiryDate,highestBid,highestBidderName)
    VALUES (?,?,?,"Senki sem");`,
     [req.body.title, req.body.expiryDate, req.body.highestBid],
-     (err, resp) => {
+    (err, resp) => {
       if (err) {
         res.sendStatus(500)
       } else {
-        res.send({message:'a-ok'})
+        res.send({ message: 'a-ok' })
       }
     })
 })
@@ -73,6 +73,17 @@ app.post('/api/items/:id/bids', (req, res) => {
           }
         })
       }
+    }
+  })
+})
+
+app.delete('/api/items/delete', (req, res) => {
+  connection.query(`DELETE from items
+  WHERE id=?;`, [req.body.id], (err, resp) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.send({ message: `deleted` })
     }
   })
 })

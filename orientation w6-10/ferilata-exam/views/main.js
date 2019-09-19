@@ -5,6 +5,7 @@ const formBid = document.querySelector('.bid');
 const formInput = document.querySelector('.new');
 const bider = document.getElementById('name');
 const bid = document.getElementById('amount');
+const btn = document.querySelector('button')
 // const dog = document.getElementById('Dog')
 
 window.onload = function loadData() {
@@ -71,20 +72,39 @@ formBid.addEventListener('submit', e => {
     });
 })
 
-formInput.addEventListener('submit', e=> {
+formInput.addEventListener('submit', e => {
   e.preventDefault();
   fetch(`api/items/new`, {
     method: 'POST',
-    body: JSON.stringify({title: document.getElementById('item').value, expiryDate: document.getElementById('expiryDate').value, highestBid: document.getElementById('highestBid').value}),
-    headers : {
+    body: JSON.stringify({ title: document.getElementById('item').value, expiryDate: document.getElementById('expiryDate').value, highestBid: document.getElementById('highestBid').value }),
+    headers: {
       'Content-type': 'application/json'
     }
   }).then(response => response.json())
-  .then(response2 => {
-    console.log( document.getElementById('item').value, document.getElementById('expiryDate').value,document.getElementById('highestBid').value)
-    if (response2.message==='a-ok'){
-    }
-    window.location.reload();
-  })
+    .then(response => {
+      console.log(document.getElementById('item').value, document.getElementById('expiryDate').value, document.getElementById('highestBid').value)
+      if (response.message === 'a-ok') {
+      }
+      window.location.reload();
+    })
 })
-  
+btn.addEventListener('click', e => {
+  // e.preventDefault();
+  fetch('api/items/delete', {
+    method: 'DELETE',
+    body: JSON.stringify({ id: select.value }),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }).then(response => response.json())
+    .then(response => {
+      if (response.message === `deleted`) {
+        window.location.reload();
+      }
+    })
+})
+
+
+function check() {
+  console.log(select.value)
+}
