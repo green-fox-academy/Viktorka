@@ -35,7 +35,21 @@ app.get('/api/items', (req, res) => {
   })
 })
 
-app.post('/api/items/:id', (req, res) => {
+app.post('/api/items/new', (req, res) => {
+  connection.query(`INSERT INTO items 
+  (title,expiryDate,highestBid,highestBidderName)
+   VALUES (?,?,?,"Senki sem");`,
+    [req.body.title, req.body.expiryDate, req.body.highestBid],
+     (err, resp) => {
+      if (err) {
+        res.sendStatus(500)
+      } else {
+        res.send({message:'a-ok'})
+      }
+    })
+})
+
+app.post('/api/items/:id/bids', (req, res) => {
   connection.query(`SELECT * from items
   WHERE id=?;`, [req.params.id], (err, resp) => {
     if (err) {
@@ -43,7 +57,7 @@ app.post('/api/items/:id', (req, res) => {
       res.sendStatus(500)
     } else {
       if (new Date() > resp[0].expiryDate) {
-        res.send({  message: 'expired' });
+        res.send({ message: 'expired' });
       } else if (req.body.amount < resp[0].highestBid) {
         res.send({ message: 'Your bid is below the highest bid!' })
       } else if (req.body.amount > resp[0].highestBid) {

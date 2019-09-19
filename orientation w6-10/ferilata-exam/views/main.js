@@ -1,7 +1,8 @@
 'use strict';
 const select = document.querySelector('select');
 const ul = document.querySelector('ul');
-const form = document.querySelector('form');
+const formBid = document.querySelector('.bid');
+const formInput = document.querySelector('.new');
 const bider = document.getElementById('name');
 const bid = document.getElementById('amount');
 // const dog = document.getElementById('Dog')
@@ -44,9 +45,9 @@ window.onload = function loadData() {
 //   xhr.send(JSON.stringify({ id: select.value, name: bider.value, amount: bid.value }));
 // })
 
-form.addEventListener('submit', e => {
+formBid.addEventListener('submit', e => {
   e.preventDefault();
-  fetch(`/api/items/${select.value}`, {
+  fetch(`/api/items/${select.value}/bids`, {
     method: 'POST',
     body: JSON.stringify({ id: select.value, name: /*dog*/bider.value, amount: bid.value }),
     headers: {
@@ -69,3 +70,21 @@ form.addEventListener('submit', e => {
       }
     });
 })
+
+formInput.addEventListener('submit', e=> {
+  e.preventDefault();
+  fetch(`api/items/new`, {
+    method: 'POST',
+    body: JSON.stringify({title: document.getElementById('item').value, expiryDate: document.getElementById('expiryDate').value, highestBid: document.getElementById('highestBid').value}),
+    headers : {
+      'Content-type': 'application/json'
+    }
+  }).then(response => response.json())
+  .then(response2 => {
+    console.log( document.getElementById('item').value, document.getElementById('expiryDate').value,document.getElementById('highestBid').value)
+    if (response2.message==='a-ok'){
+    }
+    window.location.reload();
+  })
+})
+  
