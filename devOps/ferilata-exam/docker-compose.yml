@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:5555" 
+    restart : always
+    depends_on:
+      - dataBase
+    environment: 
+      MYSQL_HOST: dataBase
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: shop
+    networks:
+      - backend
+
+  dataBase:
+    image : mysql/mysql-server:latest
+    ports: 
+      - "3309:3309"
+    restart : always
+    environment: 
+      MYSQL_ROOT_PASSWORD: password
+      volumes: 
+        container-volume:/var/lib/mysql
+        ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+      networks:
+        backend
+
+networks: 
+  backend:
+
+volumes:
+  container-volume:
