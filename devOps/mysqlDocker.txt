@@ -1,0 +1,9 @@
+mysql docker (without volume)-
+docker run mysql img
+sudo docker logs imgtag
+find 1 time password
+docker exec -it imgtag mysql -u root -p
+ctrl shift v onetime password
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+use
+

@@ -1,0 +1,40 @@
+Docker image - read only, file sytem and configuration application. An image is a read-only template with instructions for creating a Docker container.
+
+Docker container - runtime instance of an image, they run the actual applications. 
+includes the application and dependencies.
+
+Dockerfile - parancsok, amik legyenek letrehajtva amint az image elindul es containerkent elindul
+
+
+## List Docker CLI commands
+docker
+docker container --help
+
+## Display Docker version and info
+docker --version
+docker version
+docker info
+
+## Creating Docker image
+docker build -t IMAGENAME/TAG? (viktorka/szioka)
+
+## Execute Docker image
+docker run IMAGENAME( docker run -d -p SAJATPORT:PORTAZAPPBAN imagename/tag(=viktorka/szioka))
+
+## List Docker images
+docker image ls
+
+## List Docker containers (running, all, all in quiet mode)
+docker container ls
+docker container ls --all
+docker container ls -aq
+
+## creating Dockerfile for the app
+FROM node:carbon
+WORKDIR /usr/src/app  -> work directory in container
+COPY package*.json ./ -> get the file from the source, 
+RUN npm install -> after everything is done do this
+COPY . . 
+EXPOSE 8080 -> app binds to port 8080 so use the EXPOSE instruction to map by the docker daemon
+CMD ["npm", "start"] -> define the command to run
+
