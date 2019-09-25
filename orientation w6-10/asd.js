@@ -57,6 +57,44 @@
 // }
 // console.log(validatePIN('3333'))
 
-function nbYear(p0, percent, aug, p) {
-  // your code
+// function nbYear(p0, percent, aug, p) {
+//   let counter = 0
+//   while (p>p0){
+//     p0+=p0*percent/100+aug
+//     counter++
+//   }
+//   return counter
+// }
+
+// function createPhoneNumber(numbers){
+//   var format = "(xxx) xxx-xxxx";
+
+//   for(var i = 0; i < numbers.length; i++)
+//   {
+//     format = format.replace('x', numbers[i]);
+//   }
+
+//   return format;
+// }
+// // return `(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}`
+// // }
+// let asd = [1,2,3,4,5,6,7,8,9,0]
+// console.log(createPhoneNumber(asd))
+
+
+function divisors(integer) {
+  let answer = [];
+  // let prime = ''
+  for (let i = 2; i <= integer; i++) {
+    if (integer % i === 0 && i !== integer) {
+      answer.push(i);
+    } else if (i === integer && integer % i !== 0) {
+
+    }
+  } if (answer.length === 0) {
+    return `${integer} is prime`
+  } else {
+    return answer
+  }
 }
+console.log(divisors(14))
