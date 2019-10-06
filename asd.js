@@ -360,23 +360,23 @@ let time2 = '11:59:12PM'
 
 // billl[2]===2? console.log('yes'): console.log('no');
 
-let sox = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+// let sox = [10, 20, 20, 10, 10, 30, 50, 10, 20]
 
-function sockMerchant(n, ar) {
-  ar.sort();
-  let pairs = []
-  for (let i = 0; i < n; i++) {
-      if (ar[i] === ar[i + 1]) {
-        pairs.push(ar[i]);
-        pairs.push(ar[i + 1])
-        ar.splice(i, 1);
-        n--;
-      }
-  }
-  console.log(ar,pairs,pairs.length/2)
-}
+// function sockMerchant(n, ar) {
+//   ar.sort();
+//   let pairs = []
+//   for (let i = 0; i < n; i++) {
+//       if (ar[i] === ar[i + 1]) {
+//         pairs.push(ar[i]);
+//         pairs.push(ar[i + 1])
+//         ar.splice(i, 1);
+//         n--;
+//       }
+//   }
+//   console.log(ar,pairs,pairs.length/2)
+// }
 
-sockMerchant(9, sox)
+// sockMerchant(9, sox)
 
 // let s = ["UDDDUDUU"]
 
@@ -392,3 +392,91 @@ sockMerchant(9, sox)
 // }
 
 // countingValleys(8, s)
+// let p = [5, 2, 1, 3, 4]
+
+// function permutationEquation(p) {
+//   let answerArray = []
+//   for (let i = 1; i <= p.length; i++) {
+//     answerArray.push(p.indexOf(p.indexOf(i)+1)+1)
+//   }
+//   return answerArray
+// }
+
+// console.log(permutationEquation(p))
+
+// let c = [0, 0, 1, 0, 0, 1, 0]
+// let c1 = [0, 0, 0, 1, 0, 0]
+// // let c2 = [0, 0, 0, 0, 1, 0]
+// function jumpingOnClouds(c) {
+//   let counter = 0;
+//   for (let i = 0; i < c.length - 1; i++) {
+//     if (c[i + 2] === 0) {
+//       counter++
+//       i++
+//       console.log(`c${counter}`,i,2)
+//     } else if (c[i + 1] === 0) {
+//       counter++
+//       // i = i + 1
+//       console.log(`c${counter}`,i,1)
+//     }
+//   }
+//   console.log(counter)
+// }
+
+// jumpingOnClouds(c)
+// jumpingOnClouds(c1)
+// jumpingOnClouds(c2)
+
+// const jumpingOnClouds2 = (c) => {
+//   let jumps = 0
+//   let i = 0
+
+//   while (i < c.length) {
+
+//     if (c[i + 2] === 0) i += 2
+
+//     else i += 1
+
+//     if (i !== c.length) jumps++
+
+//     // This one makes you really understand what is happening
+//     console.log({ jumps, i })
+
+//   }
+
+//   return jumps
+// }
+
+// console.log(jumpingOnClouds2(c1))
+let arr = [37,32,97,35,76, 62]
+
+function equalizeArray(arr) {
+  let answerArray = [];
+  let item;
+  let mostFrequent = 1;
+  let checker = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        checker++;
+      }
+      if (mostFrequent < checker) {
+        mostFrequent = checker;
+        item = arr[i];
+      }
+    }
+    checker = 0;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === item && item !== undefined) {
+      answerArray.push(arr[i])
+    }
+    if (item === undefined) {
+      answerArray = [1]
+    }
+  }
+
+  return arr.length - answerArray.length
+}
+
+console.log(equalizeArray(arr))
