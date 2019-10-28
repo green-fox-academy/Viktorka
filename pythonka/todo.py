@@ -14,11 +14,15 @@ checker = []
 
 if answer == "-a":
     a_answ = raw_input('What task would you like to add to the list?: ')
-    import csv
+    # print len(a_answ)
+    if len(a_answ)>0:
+      import csv
     # a as append below: instead of wb
-    with open('todo.csv', 'a') as csvfile:
+      with open('todo.csv', 'a') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([a_answ])
+    else:
+        print 'no input'  
 elif answer == "-l":
     import csv
     with open('todo.csv', 'rb') as csvfile:
@@ -29,7 +33,7 @@ elif answer == "-l":
             print row[0]
           except:
             print 'no todo'
-                
+# elif answer == '-r':
 # elif answer == "-ln":
 #     import csv
 #     with open('todo.csv', 'U') as csvfile:

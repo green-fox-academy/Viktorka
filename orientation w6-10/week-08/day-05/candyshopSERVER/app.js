@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     res.sendFile('/views/candy.html', { root: __dirname });
-})
+});
 
 
 app.listen(PORT, () => {
