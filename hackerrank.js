@@ -103,19 +103,94 @@
 // console.log(list([{ name: 'Bart' }, { name: 'Lisa' }, { name: 'Maggie' }]))
 
 
-function generateHashtag(str) {
-  let splittedStr = str.split(' ');
-  let answer = '#'
-  if (str.length > 139) {
-    answer = false;
-  } else if (str.length === 0) {
-    answer = false;
-  } else {
-    for (let i = 0; i < splittedStr.length; i++) {
-      answer += splittedStr[i][0].toUpperCase() + splittedStr[i].slice(1);
-    }
-  }
-  return answer
+// function generateHashtag(str) {
+//   let splittedStr = str.split(' ');
+//   let answer = '#'
+//   if (str.length > 139) {
+//     answer = false;
+//   } else if (str.length === 0) {
+//     answer = false;
+//   } else {
+//     for (let i = 0; i < splittedStr.length; i++) {
+//       answer += splittedStr[i][0].toUpperCase() + splittedStr[i].slice(1);
+//     }
+//   }
+//   return answer
+// }
+
+// console.log(generateHashtag('asd asd'))
+
+// function pageCount(n, p) {
+//   let openCounter = 0;
+//   if ((n-p) < (0+p)) {
+//     openCounter += n-1-p;
+//   } else {
+//     openCounter += -1+p;
+//   }
+//   return openCounter;
+// }
+// function pageCount(n, p) {
+//   /*
+//     n: the number of pages in the book
+//     p: the page number to turn to
+//   */
+
+//   const pageTurns = Math.floor(p / 2);
+//   const totalTurns = Math.floor(n / 2);
+
+//   /* Returns the total number of page turns it takes to get
+//   to a page or how many it requires if starting from the back */
+
+//   return Math.min(pageTurns, totalTurns - pageTurns);
+// }
+// console.log(pageCount(6,2))
+
+// function utopianTree(n) {
+//   let answer = 1;
+//   for (let i = 1; i <= n; i++) {
+//     if(i%2===0){
+//       answer += 1
+//     } else {
+//       answer = answer*2
+//     }
+// }
+// return answer;
+// }
+
+// console.log(utopianTree(1))
+// console.log(utopianTree(2))
+// console.log(utopianTree(3))
+// console.log(utopianTree(5))
+
+// function repeatedString(s, n) {
+//   let answer = '';
+//   let counter = 0;
+//   for (let i = 0; i < n; i++) {
+//     answer += s
+//   }
+//   for (let j = 0; j < answer.length; j++) {
+//     if (answer[j]==='a'){
+//       counter++
+//     }
+//   } return counter
+// }
+
+
+// function rotLeft(a, d) {
+//   let answer = [];
+//   for (let i = b; i < a.length; i++) {
+//     answer.push(a[i]);
+//   }
+//   for (let j = 0; j < b; j++) {
+//     answer.push(a[j]);
+//   } return answer
+// }
+
+function reverseArray(a) {
+  let answer = '';
+  for (let i=a.length-1; i>=0; i--){
+      answer+= `${a[i]} `
+  }return answer
 }
 
-console.log(generateHashtag('asd asd'))
+console.log(reverseArray([1,2,3]))

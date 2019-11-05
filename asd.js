@@ -547,30 +547,30 @@
 // // migratoryBirds(arr1)
 
 // reverse a string
-function reverserString(str) {
-  let answer = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    answer += str[i];
-  }
-  return answer;
-}
+// function reverserString(str) {
+//   let answer = "";
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     answer += str[i];
+//   }
+//   return answer;
+// }
 // let stra = "asd"
 // console.log(reverserString("stra"))
 
 // // palindrome checker
-function palindrome(str) {
-  let checker = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === str[str.length - 1 - i]) {
-      checker++
-    }
-  }
-  if (checker === str.length) {
-    return true
-  } else {
-    return false
-  }
-}
+// function palindrome(str) {
+//   let checker = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] === str[str.length - 1 - i]) {
+//       checker++
+//     }
+//   }
+//   if (checker === str.length) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
 // // console.log(palindrome("asd"))
 
@@ -934,3 +934,451 @@ function palindrome(str) {
 // // }
 
 // // console.log(reverser(words))
+//not finished
+// function incrementString(strng) {
+//   let word = '';
+//   let num = '';
+
+//   for (let i = 0; i < strng.length; i++) {
+//     if (isNaN(Number(parseInt(strng[i])))) {
+//       word += strng[i]
+//     } else {
+//       num += strng[i]
+//     }
+
+//   } if (num.length === 0) {
+//     return word + '1'
+//   } else {
+//   } return word + (Number(parseInt(num)) + 1)
+// }
+
+// console.log(incrementString('asd19'))
+
+// function findShort(s) {
+//   let answer = '';
+//   let shortness = 10;
+//   let sArr= s.split(' ')
+//   for (let i = 0; i < sArr.length; i++) {
+//     if (sArr[i].length < shortness) {
+//       shortness = sArr[i].length;
+//       answer = sArr[i]
+//     }
+//   }return answer
+// }
+
+// console.log(findShort('asd aasdadsadasd aa asdd'))
+
+// function pigIt(str) {
+//   let answer = '';
+//   let strArr = str.split(' ');
+//   let attach = ''
+//   let punctuationMarks = ['!,.:;?'];
+//   for (let i = 0; i < strArr.length; i++) {
+//     attach = strArr[i][0] + 'ay';
+//     if (i === strArr.length - 1) {
+//       answer += strArr[i].slice(1) + attach;
+//     } else {
+
+//       answer += strArr[i].slice(1) + attach + ' ';
+//     }
+//   } return answer
+//   //Code here
+// }
+
+// console.log(pigIt('Hello szia !'))
+
+// function anagrams(word, words) {
+//   let answer = [];
+//   for (let i = 0; i < words.length; i++) {
+//     if (word.split('').sort().join('') === words[i].split('').sort().join('')) {
+//       answer.push(words[i])
+//     }
+//   } return answer
+// }
+// // console.log(anagrams('asd', ['ads', 'daa', 'asdd', 'aaaaa', 'asd']))
+// // console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']))
+// console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']))
+
+// function sumStrings(a, b) {
+//   // let answer = '';
+
+//   return `${Number(parseInt(a)) + Number(parseInt(b))}`
+// }
+
+// console.log(sumStrings('12', '34'))
+
+// function longestSlideDown(pyramid) {
+//   let sum = 0;
+//   for (let i = 0; i < pyramid.length; i++) {
+//     let biggest = 1;
+//     for (let j = 0; j < pyramid[i].length; j++) {
+//       if (pyramid[i][j] > biggest) {
+//         biggest = pyramid[i][j]
+//       }
+//       if (j === pyramid[i].length - 1) {
+//         sum += biggest
+//       }
+//     }
+
+//   } return sum
+// }
+
+// console.log(longestSlideDown([[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]))
+
+// function domainName(url) {
+// let answer = '';
+// if (url[6] === '/') {
+// let newUrl = url.split('//').splice(1);
+// if (newUrl[0][3] === '.') {
+// for (let i = 4; i < newUrl[0].length; i++) {
+// answer += newUrl[0][i];
+// }
+// }
+// }
+// if (url[0] === 'w') {
+// for (let i = 4; i < url.length; i++) {
+// answer += url[i];
+// }
+// }
+// return answer.split('.')[0]
+// }
+// 
+// console.log(domainName('http://www.asdadasd.aaa'))
+
+// function validParentheses(parens) {
+//   let counter1 = 0;
+//   let counter2 = 0;
+//   for (let i = 0; i < parens.length; i++) {
+//     if (parens[i] === '(') {
+//       counter1++
+//     } else if (parens[i] === ')') {
+//       counter2++
+//     }
+//   } if (counter1===counter2){
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
+// console.log(validParentheses("(())((()())())"))
+
+// function LCS(x, y) {
+//   //TODO 
+//   let answer = '';
+//   let returnValue = '';
+//   let yArr = y.split('')
+//   for (let i = 0; i < x.length; i++) {
+//     for (let j = 0; j < yArr.length; j++) {
+//       if (x[i] === yArr[j]) {
+//         returnValue+= x[i]
+//       }
+//     }
+//   }
+//   if (returnValue===y){
+//     answer += returnValue
+//   }
+//   return answer
+// }
+
+// function sumIntervals(intervals) {
+//   let answer = 0;
+//   let sum = 0;
+//   for (let i = 0; i < intervals.length; i++) {
+//       sum += Math.abs(intervals[i][0]-intervals[i][1])
+//   } return sum
+// }
+
+// sudoku ellenorzo
+// function doneOrNot(board) {
+//   let checker = {};
+//   let answer = 'Finished!'
+//   for (let i = 0; i < board.length; i++) {
+//     for (let j = 0; j < board[i].length; j++) {
+//       if (board[i][j] in checker) {
+//         checker[board[i][j]]++
+//       } else {
+//         checker[board[i][j]] = 1
+//       }
+//     }
+//   }
+//   let counter = 0;
+//   let checkerValues = Object.values(checker)
+//   for (let i = 0; i < checkerValues.length; i++) {
+//     if (checkerValues[i] === 9) {
+//       counter++
+//     }
+//   }
+// Object.values(checker).forEach(element => {
+//   if (element === 9) {
+//     counter++
+//   }
+// });
+// sor(board)
+//   if (counter === 9 && sor(board)) {
+
+//   } else {
+//     answer = 'Try again!'
+//   }
+//   return answer
+// }
+
+// function sor(board) {
+//   let answer = 'Finished!'
+//   checker = {}
+//   let counter = 0;
+//   for (let i = 0; i < board.length; i++) {
+//     for (let j = 0; j < board[i].length; j++) {
+//       if (board[j][i] in checker) {
+//         checker[board[j][i]]++
+//       } else {
+//         checker[board[j][i]] = 1
+//       }
+//     }
+//     Object.values(checker).forEach(element => {
+//       if (element === 9) {
+//         counter++
+//       }
+//     });
+//   }
+//   if (counter === 9 && sor(board)) {
+
+//   } else {
+//     answer = 'Try again!'
+//   }
+//   return answer
+// }
+
+// function kozep(board) {
+//   let checker = {};
+//   let array = [];
+//   for (let i = 1; i < board.length; i += 3) {
+//     for (let j = 1; j < board.length; j += 3) {
+//       for (let k = 0; k < 3; k++) {
+//         array.push(board[k][k])
+//       }
+//     }
+//   }
+//   console.log(array)
+// }
+
+
+// let asd = [[5, 3, 4, 6, 7, 8, 9, 1, 2],
+// [6, 7, 2, 1, 9, 5, 3, 4, 8],
+// [1, 9, 8, 3, 4, 2, 5, 6, 7],
+// [8, 5, 9, 7, 6, 1, 4, 2, 3],
+// [4, 2, 6, 8, 5, 3, 7, 9, 1],
+// [7, 1, 3, 9, 2, 4, 8, 5, 6],
+// [9, 6, 1, 5, 3, 7, 2, 8, 4],
+// [2, 8, 7, 4, 1, 9, 6, 3, 5],
+// [3, 4, 5, 2, 8, 6, 1, 7, 9]]
+// // console.log(asd[1][0])
+// console.log(doneOrNot(asd))
+// // console.log(kozep(asd))
+
+// function factorial(n) {
+//   if (n === 0) {
+//     return 1
+//   } else {
+//     return n * factorial(n - 1)
+//   }// Calculate the factorial here
+// }
+
+// console.log(factorial(5))
+
+// function matchingStrings(strings, queries) {
+//   let answer = [];
+//   let answerObj = {};
+//   for (let i = 0; i < queries.length; i++) {
+//     answerObj[queries[i]] = 1;
+//   }
+// for (let k = 0; k < queries.length; k++) {
+//     answerObj[queries[k]]--
+//   }
+//   console.log(answerObj)
+
+//   for (let j = 0; j < strings.length; j++) {
+//     if (answerObj[strings[j]]) {
+//       answerObj[strings[j]]++;
+//     }
+
+//   } console.log(answerObj)
+//   return Object.values(answerObj)
+// }
+
+// console.log(matchingStrings(["def", "de", "fgh"], ["de", "lmn", "fgh"]))
+
+// function tickets(peopleInLine) {
+//   // ...
+//   if (peopleInLine[0] !== 25) {
+//     return `No`
+//   }
+//   for (let i = 0; i < peopleInLine.length; i += 2) {
+//     if (peopleInLine[i]-peopleInLine[i+1]===0){
+//       return `Yes`
+//     } else {
+//       return `No`
+//     }
+//   }
+// }
+
+// console.log(tickets([25, 25, 50]))
+// console.log(tickets([25, 100]))
+
+// function pyramid(n) {
+//   // your code here
+//   let start = 0;
+//   let answer = [];
+//   for (let i = 2; i <= n+1; i++) {
+//     let array = [];
+//     array.length = i-1;
+//     array.fill(1, 0, i - 1)
+//     answer.push(array)
+//   }
+//   if (n===0){
+//     return []
+//   }
+//   return answer
+// }
+
+// let array = [1, 1, 1, 1];
+// let array2 = [];
+// console.log(pyramid(3))
+// console.log(pyramid(0))
+// console.log(pyramid(10))
+
+// function isDivisibleBy6(s) {
+//   let sArr = s.split('');
+//   let sNum = [];
+//   for (let i = 0; i < sArr.length; i++) {
+//     if (sArr[i] === '*') {
+//       for (let j = 0; j < 10; j++) {
+//         sArr[i] = j
+//         let sJoin = sArr.join('');
+//         if (Number.parseInt(sJoin)%6===0){
+//           sNum.push(`${Number.parseInt(sJoin)}`)
+//         }
+//       }
+//     }
+//   }
+//   return sNum
+// }
+
+// console.log(isDivisibleBy6('1*0'))
+
+// function numericals(s) {
+//   let answObj = {};
+//   let answer = '';
+//   for (let i = 0; i < s.length; i++) {
+//     if (answObj[s[i]]) {
+//       answObj[s[i]]++;
+//       answer += `${answObj[s[i]]}`
+//     } else {
+//       answObj[s[i]]=1;
+//       answer += '1'
+//     }
+//   }
+//   return answer
+// }
+
+// let obje = { 'a': 2, 'b': 3, 'c': 4 }
+// let check = 0;
+// function longestRepetition(s) {
+//   let maxValue = 1;
+//   let maxKey = ''
+//   let answer = [];
+//   let obj = {};
+//   for (let i = 0; i < s.length; i++) {
+//     if (obj[s[i]]) {
+//       obj[s[i]]++;
+//     } else {
+//       obj[s[i]] = 1;
+//     }
+//   }
+//   for (let j = 0; j < s.length; j++) {
+//     // console.log(`${obj[s[j]]}`)
+//     if (obj[s[j]] > maxValue) {
+//       maxValue = obj[s[j]]
+//       maxKey = Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b)
+//     }
+//   }
+//   // console.log(maxValue, maxKey)
+//   answer.push(maxKey);
+//   answer.push(maxValue)
+//   if (s.length === 0) {
+//     return ["", 0];
+//   } else {
+//     return answer
+//   }
+// }
+// console.log(obje)
+// console.log(longestRepetition('aaaabbbcc'))
+// for (let i = 0; i < obj.length; i++) {
+//   if ()
+// }
+
+
+// let asd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+// let rotatefuntion = (matrix) => {
+//   let answer = [];
+//   for (let i = 0; i < matrix.length; i++) {
+//     let row = [];
+//     for (let j = 0; j < matrix[i].length; j++) {
+//       row.push(matrix[j][i])
+//     } answer.push(row)
+//   } return answer
+// }
+// console.log(rotatefuntion(asd))
+
+// let aa = [[2,3],[4,5]]
+// let bb = [[1,1],[6,6]]
+
+// let whatIsBigger = (m1, m2) => {
+//   if (m1.length !== m2.length) {
+//     return `Not doing it`
+//   }
+//   let answer = [];
+//   for (let i = 0; i < m1.length; i++) {
+//     let row = [];
+//     for (let j = 0; j < m1.length; j++) {
+//       m1[i][j] > m2[i][j] ? row.push(m1[i][j]) : row.push(m2[i][j])
+//     } answer.push(row)
+//   } return answer
+// }
+
+// console.log(whatIsBigger(aa,bb))
+// function wordsInMatrix(matrix) {
+//   let answer = '';
+//   for (let i = 0; i < matrix.length; i++) {
+//     for (let j = 0; j < matrix.length; j++) {
+//       if ((i % 2 === 0 || i === 0) && (j % 2 === 0 || j === 0)) {
+//         answer += matrix[i][j]
+//       } else if (i % 2 !== 0 && j % 2 !== 0) {
+//         answer += matrix[i][j]
+//       }
+//     }
+//   } return answer
+// }
+
+// console.log(wordsInMatrix([['a', 'b','e'], ['c', 'd']]))
+// console.log(wordsInMatrix([
+//   ["h", "p", "e"],
+//   ["k", "l", "a"],
+//   ["l", "m", "o"]
+// ]))
+
+// function faszom(array) {
+//   let smallOdd = 10000;
+//   let bigEven = 1;
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] % 2 === 0 && array[i] < smallOdd) {
+//       smallOdd = array[i];
+//     }
+//     if (array[i] % 2 !== 0 && array[i] > bigEven) {
+//       bigEven = array[i];
+//     }
+//   } return (smallOdd + bigEven) / 2
+// }
+
+// console.log(faszom([2, 3, 4, 5]))
