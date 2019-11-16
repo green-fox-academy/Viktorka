@@ -16,6 +16,8 @@ function reverse(string) {
 }
 // console.log(reverse('asdfghj'))
 
+
+
 function shifter(array, number) {
   let answer = [];
   for (let i = array.length - number; i < array.length; i++) {
