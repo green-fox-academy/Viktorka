@@ -186,11 +186,126 @@
 //   } return answer
 // }
 
-function reverseArray(a) {
-  let answer = '';
-  for (let i=a.length-1; i>=0; i--){
-      answer+= `${a[i]} `
-  }return answer
+// function reverseArray(a) {
+//   let answer = '';
+//   for (let i=a.length-1; i>=0; i--){
+//       answer+= `${a[i]} `
+//   }return answer
+// }
+
+// console.log(reverseArray([1,2,3]))
+
+// let obj = { 'a': 1, 'b': 2, 'c': 3 }
+// let objb = { 'a': 1, 'b': 2, 'c': 3 }
+// for (char in obj) {
+//   if (obj[char] === objb[char]) {
+//     console.log('yes')
+//   }
+// }
+
+// function fibonacci(n) {
+//   let num = 0;
+//   let answer = []
+//   for (let i = 0; i <=n; i++) {
+//     if (i >= 2) {
+//       num += answer[i - 2] + answer[i - 1]
+//       answer.push(num)
+//       num = 0
+//     } else {
+//       answer.push(i)
+//     }
+//   } return answer[n]
+// }
+
+// console.log(fibonacci(6))
+// console.log(fibonacci(3))
+let ls = [0, 1, 3, 6, 10]
+
+// let answer = [];
+// function partsSums(array) {
+//   let input = [];
+//   let sum = 0;
+//   for (let i = 0; i < array.length; i++) {
+//     sum += array[i];
+//     input.push(array[i]);
+//   }
+//   answer.push(sum);
+//   if (array.length > 0) {
+//     partsSums(array.splice(1));
+//   } else {
+//     return [0];
+//   }
+//   console.log(answer)
+// }
+// function partsSums(ls) {
+//   let answer = [0];
+//   let array = []
+//   for (let i = ls.length - 1; i >= 0; i--) {
+//     array.push(ls[i])
+//   }
+//   array.forEach(element => {
+//     answer.push(answer[answer.length-1]+element)
+//     console.log(answer,array)
+//   });
+//   return answer.reverse()
+// }
+
+// // console.log(partsSums(ls))
+// // console.log(partsSums([]))
+// console.log(partsSums([1, 2, 3, 4, 5, 6]))
+
+// function tictac(matrix) {
+//   let counter1 = 0;
+//   let counter2 = 0;
+//   let coord1 = [];
+//   let coord2 = [];
+//   for (let i = 0; i < matrix.length; i++) {
+//     for (let j = 0; j < matrix.length; j++) {
+//       if (matrix[i][j] === 1) {
+//         coord1.push([i, j])
+//       } else if (matrix[i][j] === 2) {
+//         coord2.push([i, j])
+//       }
+//       //  else if (matrix[i][j] === 0) {
+//       //   return -1
+//       // }
+//     }
+//   }
+//   // console.log(coord1[0][0])
+//   // for (let k = 0; k < coord1.length; k++) {
+//   if (coord1.includes([1, 1])) {
+//     console.log(asd)
+//   }
+//   // }
+//   // console.log(coord1, coord2)
+// }
+// let asd = [[1, 2], [3, 4]]
+// console.log(asd.includes(1, 2))
+// tictac(
+//   [
+//     [1, 2, 1],
+//     [2, 1, 2],
+//     [2, 1, 1]
+//   ])
+function antiDiag(matrix) {
+  let sum = 0;
+  for (let i = matrix.length - 1; i >= 0; i--) {
+      sum += matrix[i][matrix.length-i-1]
+  }
+  return sum / matrix.length
 }
 
-console.log(reverseArray([1,2,3]))
+console.log(antiDiag([
+  [1, 2, 3],
+  [3, 4, 6],
+  [5, 2, 5]
+]))
+
+console.log(antiDiag([
+  [3, 5, 11, -2],
+  [3, 1, 7, 4],
+  [5, 0, 2, 9],
+  [21, 7, 8, 2]
+]))
+
+

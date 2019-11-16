@@ -21,13 +21,7 @@ function containsNumber(string) {
 // 4.
 
 // Create a function that returns how many characters are in a string without using `strlen()``
-function lengthCounter(string) {
-  let i = 0;
-  for (str in string) {
-    i++
-  }
-  return i
-}
+
 // console.log(lengthCounter('alma'))
 
 // 5.

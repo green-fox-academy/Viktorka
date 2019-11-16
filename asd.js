@@ -795,17 +795,17 @@
 
 // // console.log(joiner(["ab", "cde", "fg"], " "))
 
-// // function shifter(array,number){
-// //   let answer = [];
-// //   for (let i = array.length-number; i < array.length; i++) {
-// //     answer.push(array[i])
-// //   }
-// //   for (let j = 0; j < array.length-number; j++) {
-// //     answer.push(array[j]);
-// //   }
-// // return answer
-// // }
-// // console.log(shifter([1,2,3,4,5],1))
+// function shifter(array,number){
+//   let answer = [];
+//   for (let i = array.length-number; i < array.length; i++) {
+//     answer.push(array[i])
+//   }
+//   for (let j = 0; j < array.length-number; j++) {
+//     answer.push(array[j]);
+//   }
+// return answer
+// }
+// console.log(shifter([1,2,3,4,5],1))
 
 // // function common(string1,string2){
 // //   let str1=[];
@@ -1382,3 +1382,75 @@
 // }
 
 // console.log(faszom([2, 3, 4, 5]))
+
+// function multiTable(n) {
+//   let answer = ''
+//   for (let i = 0; i < 11; i++) {
+//     if (i === 10) {
+//       answer += i * n
+//     } else {
+
+//       answer += i * n + `\n`
+//     }
+//   } return answer
+// }
+
+// console.log(multiTable(5))
+
+// function unique(str) {
+//   let obj = {};
+//   let answer = [];
+//   let sss = str.split('');
+//   for (let i = 0; i < sss.length; i++) {
+//     if (sss[i] in obj) {
+//       obj[sss[i]]++;
+//     } else {
+//       obj[sss[i]] = 1;
+//     }
+//   }
+//   for (let j = 0; j < sss.length; j++) {
+//     if (obj[sss[j]] === 1) {
+//       answer.push(sss[j])
+//     }
+//   } return answer
+// }
+
+// console.log(unique('alma'))
+
+// function firstDup(s) {
+//   let sS = s.split('')
+//   let obj = {};
+//   for (let i = 0; i < sS.length; i++) {
+//     if (sS[i] in obj) {
+//       obj[sS[i]]++;
+//     } else {
+//       obj[sS[i]] = 1;
+//     }
+//   }
+//   console.log(obj)
+//   for (let j = 0; j < sS.length; j++) {
+//     if (obj[sS[j]] > 1) {
+//       return sS[j]
+//     } else {
+//       return undefined
+//     }
+//   }
+// }
+// console.log(firstDup('abc  ddefaf'))
+// let asd = {'a':2, 'b':3,'c':4,'d':5}
+
+// console.log(Object.keys(asd)[1], Object.values(asd), Object.entries(asd))
+
+let obj = { 'a': 3, 'b': 5, 'c': 8 }
+
+let highVal = (Object.keys(obj).reduce(function (a, b) { return obj[a] > obj[b] ? a : b }))
+console.log(obj[highVal], highVal)
+let key = ''
+let max = 1;
+for (let i = 0; i < Object.keys(obj).length; i++) {
+  if (obj[Object.keys(obj)[i]] > 1){
+    max = obj[Object.keys(obj)[i]]
+    key = Object.keys(obj)[i]
+  }
+}
+console.log(key,max)
