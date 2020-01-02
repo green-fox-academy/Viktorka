@@ -287,25 +287,24 @@ let ls = [0, 1, 3, 6, 10]
 //     [2, 1, 2],
 //     [2, 1, 1]
 //   ])
-function antiDiag(matrix) {
-  let sum = 0;
-  for (let i = matrix.length - 1; i >= 0; i--) {
-      sum += matrix[i][matrix.length-i-1]
-  }
-  return sum / matrix.length
-}
+// function antiDiag(matrix) {
+//   let sum = 0;
+//   for (let i = matrix.length - 1; i >= 0; i--) {
+//       sum += matrix[i][matrix.length-i-1]
+//   }
+//   return sum / matrix.length
+// }
 
-console.log(antiDiag([
-  [1, 2, 3],
-  [3, 4, 6],
-  [5, 2, 5]
-]))
+// console.log(antiDiag([
+//   [1, 2, 3],
+//   [3, 4, 6],
+//   [5, 2, 5]
+// ]))
 
-console.log(antiDiag([
-  [3, 5, 11, -2],
-  [3, 1, 7, 4],
-  [5, 0, 2, 9],
-  [21, 7, 8, 2]
-]))
-
+// console.log(antiDiag([
+//   [3, 5, 11, -2],
+//   [3, 1, 7, 4],
+//   [5, 0, 2, 9],
+//   [21, 7, 8, 2]
+// ]))
 

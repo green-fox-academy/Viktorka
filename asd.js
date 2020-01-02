@@ -689,35 +689,35 @@
 // // let anagramCheck = (str1,str2) => {
 // //   return str1.split('').sort().join()===str2.split('').sort().join()
 // // }
-// function anagramm(str1, str2) {
-//   // counter = 0;
-//   let checkIt = {};
-//   if (str1.length === str2.length) {
-//     for (let i = 0; i < str1.length; i++) {
-//       if (checkIt[str1[i]]) {
-//         checkIt[str1[i]]++;
-//       } else {
-//         checkIt[str1[i]] = 1;
-//       }
-//     }
-//     // console.log(checkIt)
-//     for (let j = 0; j < str2.length; j++) {
-//       if (checkIt[str2[j]]) {
-//         checkIt[str2[j]]--;
-//         if (checkIt[str2[j]] === 0) {
-//           delete checkIt[str2[j]]
-//         }
-//         if (Object.keys(checkIt).length === 0) {
-//           checkIt['yassqueen'] = 1;
-//         }
-//       }
-//     }
-//   } if (checkIt.yassqueen === 1) {
-//     return true
-//   } else {
-//     return false
-//   }
-// }
+function anagramm(str1, str2) {
+  // counter = 0;
+  let checkIt = {};
+  if (str1.length === str2.length) {
+    for (let i = 0; i < str1.length; i++) {
+      if (checkIt[str1[i]]) {
+        checkIt[str1[i]]++;
+      } else {
+        checkIt[str1[i]] = 1;
+      }
+    }
+    // console.log(checkIt)
+    for (let j = 0; j < str2.length; j++) {
+      if (checkIt[str2[j]]) {
+        checkIt[str2[j]]--;
+        if (checkIt[str2[j]] === 0) {
+          delete checkIt[str2[j]]
+        }
+        if (Object.keys(checkIt).length === 0) {
+          checkIt['yassqueen'] = 1;
+        }
+      }
+    }
+  } if (checkIt.yassqueen === 1) {
+    return true
+  } else {
+    return false
+  }
+}
 
 // // console.log(anagramCheck('alma','ama'))
 
